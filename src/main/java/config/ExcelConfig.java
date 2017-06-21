@@ -35,5 +35,12 @@ public class ExcelConfig {
     public static int Sheet411PersonalEnd = 15;
     public static int Sheet411CoreStart = 3;
     public static int Sheet411CoreEnd = 17;
+    public static String Sheet411DefaultProvince = "广东";
+    public static int Sheet411RecordStartRow = 3;
+    public static int Sheet411TimeCellIndex = 0;
+    public static int Sheet411Order1CellIndex = 1;
+    public static int Sheet411ProvinceCellIndex = 2;
+    public static int Sheet411PersonalRemarkIndex = 15;
+    public static int Sheet411CoreRemarkIndex = 17;
 
 }
