@@ -28,7 +28,7 @@ public class ExcelConfig {
     public static short borderColor = IndexedColors.BLACK.index;
 
     //Default value for null
-    public static String nullValue = "无";
+    public static String nullValue = "";
 
     //Sheet 4.1.1 Setting
     public static int Sheet411PersonalStart = 3;
@@ -42,5 +42,66 @@ public class ExcelConfig {
     public static int Sheet411ProvinceCellIndex = 2;
     public static int Sheet411PersonalRemarkIndex = 15;
     public static int Sheet411CoreRemarkIndex = 17;
+    
+    //Sheet 4.2.1 Setting
+    public static int Sheet421PersonalStart = 3;
+    public static int Sheet421PersonalEnd = 9;
+    public static int Sheet421PersonalBlankStart = 9;
+    public static int Sheet421PersonalBlankEnd = 13;
+    public static int Sheet421CoreStart = 4;
+    public static int Sheet421CoreEnd = 16;
+    public static int Sheet421CoreBlankStart = 16;
+    public static int Sheet421CoreBlankEnd = 17;
+    public static String Sheet421DefaultProvince = "广东";
+    public static int Sheet421RecordStartRow = 3;
+    public static int Sheet421TimeCellIndex = 0;
+    public static int Sheet421Order1CellIndex = 1;
+    public static int Sheet421CoreBatchCellIndex = 2;
+    public static int Sheet421PersonalProvinceCellIndex = 2;
+    public static int Sheet421CoreProvinceCellIndex = 3;
+
+    //Sheet 4.2.2 Setting
+    public static String Sheet422DefaultProvince = "广东";
+    public static int Sheet422RecordStartRow = 3;
+    public static int Sheet422OrderCellIndex = 0;
+    public static int Sheet422BatchCellIndex = 1;
+    public static int Sheet422ProvinceCellIndex = 2;
+    public static int Sheet422PersonalStart = 3;
+    public static int Sheet422PersonalEnd = 11;
+    public static int Sheet422PersonalBlankStart = 11;
+    public static int Sheet422PersonalBlankEnd = 20;
+    public static int Sheet422CoreStart = 3;
+    public static int Sheet422CoreEnd = 19;
+    public static int Sheet422CoreBlankStart = 19;
+    public static int Sheet422CoreBlankEnd = 20;
+
+    //Sheet 4.2.3 Setting
+    public static String Sheet423DefaultProvince = "广东";
+    public static int Sheet423RecordStartRow = 3;
+    public static int Sheet423OrderCellIndex = 0;
+    public static int Sheet423BatchCellIndex = 1;
+    public static int Sheet423ProvinceCellIndex = 2;
+    public static int Sheet423PersonalStart = 3;
+    public static int Sheet423PersonalEnd = 11;
+    public static int Sheet423PersonalBlankStart = 11;
+    public static int Sheet423PersonalBlankEnd = 12;
+    public static int Sheet423CoreStart = 3;
+    public static int Sheet423CoreEnd = 19;
+    public static int Sheet423CoreBlankStart = 19;
+    public static int Sheet423CoreBlankEnd = 20;
+    public static int Sheet423DataDistance = 4;
+
+    //Sheet 4.2.4 Setting
+    public static String Sheet424DefaultProvince = "广东";
+    public static int Sheet424RecordStartRow = 3;
+    public static int Sheet424OrderCellIndex = 0;
+    public static int Sheet424BatchCellIndex = 1;
+    public static int Sheet424ProvinceCellIndex = 2;
+    public static int Sheet424Start = 3;
+    public static int Sheet424PersonalBlankStart = 7;
+    public static int Sheet424PersonalBlankEnd = 8;
+    public static int Sheet424CoreBlankStart = 11;
+    public static int Sheet424CoreBlankEnd = 12;
+
 
 }

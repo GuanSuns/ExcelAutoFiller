@@ -5,26 +5,25 @@ import java.sql.Timestamp;
 /**
  * Created by guanl on 6/19/2017.
  */
-public class Sheet411PDM {
-    private Timestamp date;
-    private String province;
-    private Long order1;
-    private Float usage2;
-    private Float weblogicUsage2;
-    private Float usage3;
-    private Float weblogicUsage3;
-    private Float usage4;
-    private Float weblogicUsage4;
-    private Float usage5;
-    private Float weblogicUsage5;
-    private Float usage6;
-    private Float weblogicUsage6;
-    private Float usage7;
-    private Float weblogicUsage7;
-    private Float usage8;
-    private Float weblogicUsage8;
+public class Sheet411PersonalPDM {
+    protected Timestamp date;
+    protected String province;
+    protected Long order1;
+    protected Float usage2;
+    protected Float weblogicUsage2;
+    protected Float usage3;
+    protected Float weblogicUsage3;
+    protected Float usage4;
+    protected Float weblogicUsage4;
+    protected Float usage5;
+    protected Float weblogicUsage5;
+    protected Float usage6;
+    protected Float weblogicUsage6;
+    protected Float usage7;
+    protected Float weblogicUsage7;
 
-    public Sheet411PDM(){
+
+    public Sheet411PersonalPDM(){
         this.date = null;
         this.province = "广东";
         this.order1 = 0L;
@@ -40,19 +39,17 @@ public class Sheet411PDM {
         this.weblogicUsage6 = 0F;
         this.usage7 = 0F;
         this.weblogicUsage7 = 0F;
-        this.usage8 = 0F;
-        this.weblogicUsage8 = 0F;
     }
 
-    public Sheet411PDM(Timestamp date, Long order1
+    public Sheet411PersonalPDM(Timestamp date, String province, Long order1
             , Float usage2, Float weblogicUsage2
             , Float usage3, Float weblogicUsage3
             , Float usage4, Float weblogicUsage4
             , Float usage5, Float weblogicUsage5
             , Float usage6, Float weblogicUsage6
-            , Float usage7, Float weblogicUsage7
-            , Float usage8, Float weblogicUsage8) {
+            , Float usage7, Float weblogicUsage7) {
         this.date = date;
+        this.province = province;
         this.order1 = order1;
         this.usage2 = usage2;
         this.weblogicUsage2 = weblogicUsage2;
@@ -66,8 +63,6 @@ public class Sheet411PDM {
         this.weblogicUsage6 = weblogicUsage6;
         this.usage7 = usage7;
         this.weblogicUsage7 = weblogicUsage7;
-        this.usage8 = usage8;
-        this.weblogicUsage8 = weblogicUsage8;
     }
 
     public Timestamp getDate() {
@@ -130,14 +125,6 @@ public class Sheet411PDM {
         return weblogicUsage7;
     }
 
-    public Float getUsage8() {
-        return usage8;
-    }
-
-    public Float getWeblogicUsage8() {
-        return weblogicUsage8;
-    }
-
     public void setDate(Timestamp date) {
         this.date = date;
     }
@@ -198,11 +185,4 @@ public class Sheet411PDM {
         this.weblogicUsage7 = weblogicUsage7;
     }
 
-    public void setUsage8(Float usage8) {
-        this.usage8 = usage8;
-    }
-
-    public void setWeblogicUsage8(Float weblogicUsage8) {
-        this.weblogicUsage8 = weblogicUsage8;
-    }
 }
