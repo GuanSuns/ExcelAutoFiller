@@ -103,5 +103,15 @@ public class ExcelConfig {
     public static int Sheet424CoreBlankStart = 11;
     public static int Sheet424CoreBlankEnd = 12;
 
-
+    //Sheet 4.2.9 Setting
+    public static String Sheet429DefaultProvince = "广东";
+    public static int Sheet429RecordStartRow = 4;
+    public static int Sheet429OrderCellIndex = 0;
+    public static int Sheet429BatchCellIndex = 1;
+    public static int Sheet429ProvinceCellIndex = 2;
+    public static int Sheet429Start = 3;
+    public static int Sheet429PersonalBlankStart = 4;
+    public static int Sheet429PersonalBlankEnd = 5;
+    public static int Sheet429CoreBlankStart = 6;
+    public static int Sheet429CoreBlankEnd = 7;
 }

@@ -39,7 +39,20 @@ public class Main {
                     , null, "status 4"
                     , null, "status 5");
 
-            Sheet424Filler.fill(sheet424CorePDM, FileDestination.Core);
+            Sheet429DataPDM sheet429data1 = new Sheet429DataPDM(1, null
+                    , 123L, "test 1", 123, 123.123d
+                    , 3254.345d, 324.2d, 32L);
+            Sheet429DataPDM sheet429data2 = new Sheet429DataPDM(2, null
+                    , 123L, "test 1", 123, 123.123d
+                    , 3254.345d, 324.2d, 32L);
+            Sheet429DataPDM sheet429data3 = new Sheet429DataPDM(3, null
+                    , 123L, "test 1", 123, 123.123d
+                    , 3254.345d, 324.2d, 32L);
+
+            Sheet429PersonalPDM sheet429PersonalPDM = new Sheet429PersonalPDM(null, null, null, sheet429data1);
+            Sheet429CorePDM sheet429CorePDM = new Sheet429CorePDM(null, null, null, sheet429data1, sheet429data2, sheet429data3);
+
+            Sheet429Filler.fill( sheet429PersonalPDM, FileDestination.Personal);
         }catch (Exception e){
             e.printStackTrace();
         }
