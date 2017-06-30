@@ -13,6 +13,9 @@ public class Sheet421CorePDM extends Sheet421PersonalPDM {
     private Float goldUsage5;
 
     public Sheet421CorePDM() {
+        this.usage5 = 0f;
+        this.u01Usage5 = 0f;
+        this.goldUsage5 = 0f;
     }
 
     public Sheet421CorePDM(Timestamp date, String province, Long order1
