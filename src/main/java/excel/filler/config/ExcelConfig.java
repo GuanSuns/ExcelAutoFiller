@@ -111,16 +111,30 @@ public class ExcelConfig {
     public static int Sheet424CoreBlankStart = 10;
     public static int Sheet424CoreBlankEnd = 13;
     public static int Sheet424DataDistance = 2;
+    
+    //Sheet 4.2.8 Setting
+    public static String Sheet428DefaultProvince = "广东";
+    public static int Sheet428TimeCellIndex = 0;
+    public static int Sheet428RecordStartRow = 3;
+    public static int Sheet428OrderCellIndex = 1;
+    public static int Sheet428BatchCellIndex = 2;
+    public static int Sheet428ProvinceCellIndex = 3;
+    public static int Sheet428Start = 4;
+    public static int Sheet428PersonalBlankStart = 11;
+    public static int Sheet428PersonalBlankEnd = 11;
+    public static int Sheet428CoreBlankStart = 8;
+    public static int Sheet428CoreBlankEnd = 11;
 
     //Sheet 4.2.9 Setting
     public static String Sheet429DefaultProvince = "广东";
+    public static int Sheet429TimeCellIndex = 0;
     public static int Sheet429RecordStartRow = 4;
-    public static int Sheet429OrderCellIndex = 0;
-    public static int Sheet429BatchCellIndex = 1;
-    public static int Sheet429ProvinceCellIndex = 2;
-    public static int Sheet429Start = 3;
-    public static int Sheet429PersonalBlankStart = 4;
-    public static int Sheet429PersonalBlankEnd = 5;
-    public static int Sheet429CoreBlankStart = 6;
-    public static int Sheet429CoreBlankEnd = 7;
+    public static int Sheet429OrderCellIndex = 1;
+    public static int Sheet429BatchCellIndex = 2;
+    public static int Sheet429ProvinceCellIndex = 3;
+    public static int Sheet429Start = 4;
+    public static int Sheet429PersonalBlankStart = 5;
+    public static int Sheet429PersonalBlankEnd = 6;
+    public static int Sheet429CoreBlankStart = 7;
+    public static int Sheet429CoreBlankEnd = 8;
 }

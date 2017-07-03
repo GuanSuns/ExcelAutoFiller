@@ -65,7 +65,9 @@ public class Sheet429Filler {
             , Sheet429PersonalPDM sheet429PDM
             , FileDestination destination) throws Exception{
         //Get the row index for the new data
-        int index = sheet429.getLastRowNum() + 1;
+        int index = ExcelUtils.getLastRow(sheet429
+                , ExcelConfig.Sheet429RecordStartRow
+                , ExcelConfig.Sheet429TimeCellIndex) + 1;
 
         Row row = ExcelUtils.getRow(sheet429, index);
 
@@ -99,31 +101,18 @@ public class Sheet429Filler {
 
         ArrayList<String> strSQLResults = new ArrayList<>();
 
-        if(sheet429PDM.getCollectionCore() == null){
-            strSQLResults.add("");
-        }else{
-            strSQLResults.add(sheet429PDM.getCollectionCore().getSQLResult());
-        }
-
         if(destination.equals(FileDestination.Core)){
             Sheet429CorePDM sheet429CorePDM = (Sheet429CorePDM)sheet429PDM;
 
-            if(sheet429CorePDM.getIntegratedCore() == null){
-                strSQLResults.add("");
-            }else{
-                strSQLResults.add(sheet429CorePDM.getIntegratedCore().getSQLResult());
-            }
-
-            if(sheet429CorePDM.getQueryCore() == null){
-                strSQLResults.add("");
-            }else{
-                strSQLResults.add(sheet429CorePDM.getQueryCore().getSQLResult());
-            }
+            strSQLResults.add(sheet429CorePDM.getHeartBeat1());
+            strSQLResults.add(sheet429CorePDM.getHeartBeat2());
+            strSQLResults.add(sheet429CorePDM.getHeartBeat3());
 
             ExcelUtils.fillRowWithString(row, ExcelConfig.Sheet429Start
                     , ExcelConfig.Sheet429CoreBlankStart, strSQLResults);
-
         }else{
+            strSQLResults.add(sheet429PDM.getHeartBeat1());
+
             ExcelUtils.fillRowWithString(row, ExcelConfig.Sheet429Start
                     , ExcelConfig.Sheet429PersonalBlankStart, strSQLResults);
         }
@@ -137,10 +126,17 @@ public class Sheet429Filler {
             , FileDestination destination) throws Exception {
         Workbook wb = row.getSheet().getWorkbook();
         CellStyle cellStyle = wb.createCellStyle();
+        CellStyle cellStyleDate = wb.createCellStyle();
         Font font = wb.createFont();
 
         //Set cell style to default style
         ExcelUtils.initDefaultCellStyle(cellStyle, font);
+        ExcelUtils.initDefaultCellStyle(cellStyleDate, font);
+
+        ExcelUtils.setDefaultDateCellStyle(cellStyleDate, wb);
+        Cell cellDate = ExcelUtils.getCell(row, ExcelConfig.Sheet429TimeCellIndex);
+        cellDate.setCellStyle(cellStyleDate);
+        cellDate.setCellValue(sheet429PDM.getDate());
 
         Cell cellOrder = ExcelUtils.getCell(row, ExcelConfig.Sheet429OrderCellIndex);
         cellOrder.setCellStyle(cellStyle);

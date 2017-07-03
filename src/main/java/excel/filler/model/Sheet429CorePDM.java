@@ -1,38 +1,40 @@
 package excel.filler.model;
 
+import java.sql.Timestamp;
+
 /**
  * Created by guanl on 6/23/2017.
  */
 public class Sheet429CorePDM extends Sheet429PersonalPDM{
-    private Sheet429DataPDM integratedCore;
-    private Sheet429DataPDM queryCore;
+    private String heartBeat2;
+    private String heartBeat3;
 
     public Sheet429CorePDM() {
-        this.integratedCore = null;
-        this.queryCore = null;
+        this.heartBeat2 = "";
+        this.heartBeat3 = "";
     }
 
-    public Sheet429CorePDM(Long order, String batch, String province
-            , Sheet429DataPDM collectionCore, Sheet429DataPDM integratedCore
-            , Sheet429DataPDM queryCore) {
-        super(order, batch, province, collectionCore);
-        this.integratedCore = integratedCore;
-        this.queryCore = queryCore;
+    public Sheet429CorePDM(Timestamp date, Long order, String batch
+            , String province, String heartBeat1
+            , String heartBeat2, String heartBeat3) {
+        super(date, order, batch, province, heartBeat1);
+        this.heartBeat2 = heartBeat2;
+        this.heartBeat3 = heartBeat3;
     }
 
-    public void setIntegratedCore(Sheet429DataPDM integratedCore) {
-        this.integratedCore = integratedCore;
+    public String getHeartBeat2() {
+        return heartBeat2;
     }
 
-    public void setQueryCore(Sheet429DataPDM queryCore) {
-        this.queryCore = queryCore;
+    public void setHeartBeat2(String heartBeat2) {
+        this.heartBeat2 = heartBeat2;
     }
 
-    public Sheet429DataPDM getIntegratedCore() {
-        return integratedCore;
+    public String getHeartBeat3() {
+        return heartBeat3;
     }
 
-    public Sheet429DataPDM getQueryCore() {
-        return queryCore;
+    public void setHeartBeat3(String heartBeat3) {
+        this.heartBeat3 = heartBeat3;
     }
 }
