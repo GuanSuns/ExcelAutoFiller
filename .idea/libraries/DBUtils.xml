@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="DBUtils">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/DBUtils.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
