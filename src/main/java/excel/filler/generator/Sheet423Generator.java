@@ -35,6 +35,10 @@ public class Sheet423Generator {
         }
 
         ArrayList<Sheet423PersonalModel> sheet423Models = Sheet423Controller.getRecentInstancesPersonal(ExcelConfig.daysRecentInstances);
+        if(sheet423Models == null || sheet423Models.isEmpty()){
+            return;
+        }
+
         if(latestDate != null){
 
             for(Sheet423PersonalModel sheet423Model : sheet423Models){
@@ -63,6 +67,10 @@ public class Sheet423Generator {
         }
 
         ArrayList<Sheet423CoreModel> sheet423Models = Sheet423Controller.getRecentInstancesCore(ExcelConfig.daysRecentInstances);
+        if(sheet423Models == null || sheet423Models.isEmpty()){
+            return;
+        }
+
         if(latestDate != null){
 
             for(Sheet423CoreModel sheet423Model : sheet423Models){

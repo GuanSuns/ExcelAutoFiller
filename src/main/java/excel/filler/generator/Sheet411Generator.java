@@ -38,6 +38,10 @@ public class Sheet411Generator {
         }
 
         ArrayList<Sheet411PersonalModel> sheet411Models = Sheet411Controller.getRecentInstancesPersonal(ExcelConfig.daysRecentInstances);
+        if(sheet411Models == null || sheet411Models.isEmpty()){
+            return;
+        }
+
         if(latestDate != null){
             for(Sheet411PersonalModel sheet411Model : sheet411Models){
                 if(sheet411Model.getDate().getTime() > latestDate.getTime()){
@@ -65,6 +69,10 @@ public class Sheet411Generator {
         }
 
         ArrayList<Sheet411CoreModel> sheet411Models = Sheet411Controller.getRecentInstancesCore(ExcelConfig.daysRecentInstances);
+        if(sheet411Models == null || sheet411Models.isEmpty()){
+            return;
+        }
+
         if(latestDate != null){
 
             for(Sheet411CoreModel sheet411Model : sheet411Models){

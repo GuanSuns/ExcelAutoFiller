@@ -90,7 +90,7 @@ public class Sheet424Filler {
 
         for(int i = 0; i < data.size(); i++){
             Cell cellTime = ExcelUtils.getCell(row
-                    , ExcelConfig.Sheet424Start + 2*i);
+                    , ExcelConfig.Sheet424Start + ExcelConfig.Sheet424DataDistance*i);
             Timestamp time = data.get(i).collectTime;
             if(time == null){
                 time = new Timestamp(new Date().getTime());
@@ -99,7 +99,7 @@ public class Sheet424Filler {
             cellTime.setCellValue(time);
 
             Cell cellStatus = ExcelUtils.getCell(row
-                    , ExcelConfig.Sheet424Start + 2*ExcelConfig.Sheet424DataDistance + 1);
+                    , ExcelConfig.Sheet424Start + i*ExcelConfig.Sheet424DataDistance + 1);
             cellStatus.setCellStyle(cellStyle);
             cellStatus.setCellValue(data.get(i).status);
         }
@@ -144,8 +144,6 @@ public class Sheet424Filler {
             Sheet424CorePDM sheet424CorePDM = (Sheet424CorePDM)sheet424PDM;
             data.add(new TimeStatusPair(sheet424CorePDM.getCollectTime4()
                     , sheet424CorePDM.getTempStatus4()));
-            data.add(new TimeStatusPair(sheet424CorePDM.getCollectTime5()
-                    , sheet424CorePDM.getTempStatus5()));
         }
 
         //Insert time and status pairs

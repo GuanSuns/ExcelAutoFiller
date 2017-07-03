@@ -101,7 +101,7 @@ public class ExcelConfig {
     //Sheet 4.2.4 Setting
     public static String Sheet424DefaultProvince = "广东";
     public static int Sheet424TimeCellIndex = 0;
-    public static int Sheet424RecordStartRow = 4;
+    public static int Sheet424RecordStartRow = 3;
     public static int Sheet424OrderCellIndex = 1;
     public static int Sheet424BatchCellIndex = 2;
     public static int Sheet424ProvinceCellIndex = 3;

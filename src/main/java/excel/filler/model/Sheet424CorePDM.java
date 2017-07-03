@@ -64,4 +64,14 @@ public class Sheet424CorePDM extends Sheet424PersonalPDM {
     public void setTempStatus5(String tempStatus5) {
         this.tempStatus5 = tempStatus5;
     }
+
+    @Override
+    public String toString() {
+        return "Sheet424CorePDM{" +
+                "collectTime4=" + collectTime4 +
+                ", tempStatus4='" + tempStatus4 +
+                ", collectTime5=" + collectTime5 +
+                ", tempStatus5='" + tempStatus5 +
+                '}';
+    }
 }

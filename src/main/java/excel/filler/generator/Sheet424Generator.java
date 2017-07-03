@@ -34,6 +34,10 @@ public class Sheet424Generator {
         }
 
         ArrayList<Sheet424PersonalModel> sheet424Models = Sheet424Controller.getRecentInstancesPersonal(ExcelConfig.daysRecentInstances);
+        if(sheet424Models == null || sheet424Models.isEmpty()){
+            return;
+        }
+
         if(latestDate != null){
 
             for(Sheet424PersonalModel sheet424Model : sheet424Models){
@@ -62,8 +66,11 @@ public class Sheet424Generator {
         }
 
         ArrayList<Sheet424CoreModel> sheet424Models = Sheet424Controller.getRecentInstancesCore(ExcelConfig.daysRecentInstances);
-        if(latestDate != null){
+        if(sheet424Models == null || sheet424Models.isEmpty()){
+            return;
+        }
 
+        if(latestDate != null){
             for(Sheet424CoreModel sheet424Model : sheet424Models){
                 if(sheet424Model.getDate().getTime() > latestDate.getTime()){
                     Sheet424CorePDM sheet424CorePDM = new Sheet424CorePDM();
@@ -90,6 +97,7 @@ public class Sheet424Generator {
 
     private static void fillCorePdmFromModel(Sheet424CorePDM pdm, Sheet424CoreModel model){
         fillPersonalPdmFromModel(pdm, model);
+
         pdm.setCollectTime3(model.getInspectTime3());
         pdm.setTempStatus3(model.getStatus3());
 
