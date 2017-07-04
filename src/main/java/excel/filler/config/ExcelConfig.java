@@ -29,6 +29,7 @@ public class ExcelConfig {
 
     //Some global settings
     public static String dateFormat = "yyyy/MM/dd HH:mm";
+    public static String fileDateFormat = "yyyyMMdd";
     public static int daysRecentInstances = 31;
 
     //Default value for null
@@ -111,6 +112,21 @@ public class ExcelConfig {
     public static int Sheet424CoreBlankStart = 10;
     public static int Sheet424CoreBlankEnd = 13;
     public static int Sheet424DataDistance = 2;
+
+    //Sheet 4.2.6 Setting
+    public static String Sheet426DefaultProvince = "广东";
+    public static int Sheet426TimeCellIndex = 0;
+    public static int Sheet426RecordStartRow = 3;
+    public static int Sheet426OrderCellIndex = 1;
+    public static int Sheet426BatchCellIndex = 2;
+    public static int Sheet426ProvinceCellIndex = 3;
+    public static int Sheet426Start = 4;
+    public static int Sheet426PersonalBlankStart = 6;
+    public static int Sheet426PersonalBlankEnd = 9;
+    public static int Sheet426CoreBlankStart = 10;
+    public static int Sheet426CoreBlankEnd = 13;
+    public static String Sheet426ErrorString = "无";
+    public static String Sheet426NoErrorString = "有";
     
     //Sheet 4.2.8 Setting
     public static String Sheet428DefaultProvince = "广东";
