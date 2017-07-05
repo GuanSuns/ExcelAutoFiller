@@ -129,8 +129,8 @@ public class ExcelConfig {
     public static String Sheet426NoErrorString = "无";
     public static float Sheet426LogCellHeight = 90f;
     public static int Sheet426LogCellWidth = 256*30;
-    public static int Sheet426Pic1X1 = 477;
-    public static int Sheet426Pic1X2 = 545;
+    public static int Sheet426Pic1X1 = 307;
+    public static int Sheet426Pic1X2 = 716;
     public static int Sheet426Pic20X1 = 68;
     public static int Sheet426Pic20X2 = 477;
     public static int Sheet426Pic21X1 = 545;

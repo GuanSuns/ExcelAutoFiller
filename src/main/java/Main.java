@@ -57,6 +57,7 @@ public class Main {
             //Sheet428Generator.generateCore();
             //Sheet428Generator.generatePersonal();
             Sheet426Generator.generatePersonal();
+            Sheet426Generator.generateCore();
 
 
         }catch (Exception e){

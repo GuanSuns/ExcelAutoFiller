@@ -95,9 +95,9 @@ public class Sheet426Filler {
             sheet426PDM.setDate(currentTime);
         }
         sheet426PDM.setOrder1((long)(index - ExcelConfig.Sheet426RecordStartRow + 1));
-        sheet426.autoSizeColumn(ExcelConfig.Sheet426TimeCellIndex);
         //Write inspection time, order and province
         setBasicProperties(row, sheet426PDM, destination);
+        sheet426.autoSizeColumn(ExcelConfig.Sheet426TimeCellIndex);
 
         Workbook wb = row.getSheet().getWorkbook();               
 
@@ -135,22 +135,23 @@ public class Sheet426Filler {
         Cell cellORA = ExcelUtils.getCell(row, ExcelConfig.Sheet426Start);
         cellORA.setCellStyle(cellStyle);
         cellORA.setCellValue(sheet426PDM.getError2());
+
+        Cell cellLog = ExcelUtils.getCell(row, ExcelConfig.Sheet426Start+1);
+        cellLog.setCellStyle(cellStyle);
         
         String log20 = sheet426PDM.getLog20();
         String log21 = sheet426PDM.getLog21();
         Date currentTime = new Date();
-        SimpleDateFormat df = new SimpleDateFormat(ExcelConfig.fileDateFormat);
-        String strTime = df.format(currentTime);
 
         int oleId20 = sheet.getWorkbook().addOlePackage(log20.getBytes()
-                , strTime+"_"+currentTime.getTime()+ "_host20.log"
-                , strTime+"_"+currentTime.getTime()+"_host20.log"
-                , strTime+"_"+currentTime.getTime()+"_host20.log");
+                , currentTime.getTime()+ "_host20.log"
+                , currentTime.getTime()+"_host20.log"
+                , currentTime.getTime()+"_host20.log");
 
         int oleId21 = sheet.getWorkbook().addOlePackage(log21.getBytes()
-                , strTime+"_"+currentTime.getTime()+"_host21.log"
-                , strTime+"_"+currentTime.getTime()+"_host21.log"
-                , strTime+"_"+currentTime.getTime()+"_host21.log");
+                , currentTime.getTime()+"_host21.log"
+                , currentTime.getTime()+"_host21.log"
+                , currentTime.getTime()+"_host21.log");
 
         row.setHeightInPoints(ExcelConfig.Sheet426LogCellHeight);
         sheet.setColumnWidth((ExcelConfig.Sheet426Start+1)
@@ -211,15 +212,16 @@ public class Sheet426Filler {
         cellORA.setCellStyle(cellStyle);
         cellORA.setCellValue(sheet426CorePDM.getError3());
 
+        Cell cellLog = ExcelUtils.getCell(row, ExcelConfig.Sheet426Start + 3);
+        cellLog.setCellStyle(cellStyle);
+
         String log3 = sheet426CorePDM.getLog3();
         Date currentTime = new Date();
-        SimpleDateFormat df = new SimpleDateFormat(ExcelConfig.fileDateFormat);
-        String strTime = df.format(currentTime);
 
         int oleId3 = sheet.getWorkbook().addOlePackage(log3.getBytes()
-                , strTime+"_"+currentTime.getTime()+ "_host3.log"
-                , strTime+"_"+currentTime.getTime()+"_host3.log"
-                , strTime+"_"+currentTime.getTime()+"_host3.log");
+                , currentTime.getTime()+ "_host3.log"
+                , currentTime.getTime()+"_host3.log"
+                , currentTime.getTime()+"_host3.log");
 
         row.setHeightInPoints(ExcelConfig.Sheet426LogCellHeight);
         sheet.setColumnWidth((ExcelConfig.Sheet426Start+3)
@@ -263,25 +265,26 @@ public class Sheet426Filler {
         //Set cell style to default style
         ExcelUtils.initDefaultCellStyle(cellStyle, font);
 
-        Cell cellORA = ExcelUtils.getCell(row, ExcelConfig.Sheet426Start);
+        Cell cellORA = ExcelUtils.getCell(row, ExcelConfig.Sheet426Start + 4);
         cellORA.setCellStyle(cellStyle);
         cellORA.setCellValue(sheet426CorePDM.getError4());
+
+        Cell cellLog = ExcelUtils.getCell(row, ExcelConfig.Sheet426Start + 5);
+        cellLog.setCellStyle(cellStyle);
 
         String log40 = sheet426CorePDM.getLog40();
         String log41 = sheet426CorePDM.getLog41();
         Date currentTime = new Date();
-        SimpleDateFormat df = new SimpleDateFormat(ExcelConfig.fileDateFormat);
-        String strTime = df.format(currentTime);
 
         int oleId20 = sheet.getWorkbook().addOlePackage(log40.getBytes()
-                , strTime+"_"+currentTime.getTime()+ "_host40.log"
-                , strTime+"_"+currentTime.getTime()+"_host40.log"
-                , strTime+"_"+currentTime.getTime()+"_host40.log");
+                , currentTime.getTime()+ "_host40.log"
+                , currentTime.getTime()+"_host40.log"
+                , currentTime.getTime()+"_host40.log");
 
         int oleId21 = sheet.getWorkbook().addOlePackage(log41.getBytes()
-                , strTime+"_"+currentTime.getTime()+"_host41.log"
-                , strTime+"_"+currentTime.getTime()+"_host41.log"
-                , strTime+"_"+currentTime.getTime()+"_host41.log");
+                , currentTime.getTime()+"_host41.log"
+                , currentTime.getTime()+"_host41.log"
+                , currentTime.getTime()+"_host41.log");
 
         row.setHeightInPoints(ExcelConfig.Sheet426LogCellHeight);
         sheet.setColumnWidth((ExcelConfig.Sheet426Start+5)
