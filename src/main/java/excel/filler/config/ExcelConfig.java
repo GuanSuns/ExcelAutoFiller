@@ -125,8 +125,20 @@ public class ExcelConfig {
     public static int Sheet426PersonalBlankEnd = 9;
     public static int Sheet426CoreBlankStart = 10;
     public static int Sheet426CoreBlankEnd = 13;
-    public static String Sheet426ErrorString = "无";
-    public static String Sheet426NoErrorString = "有";
+    public static String Sheet426ErrorString = "有";
+    public static String Sheet426NoErrorString = "无";
+    public static float Sheet426LogCellHeight = 90f;
+    public static int Sheet426LogCellWidth = 256*30;
+    public static int Sheet426Pic1X1 = 477;
+    public static int Sheet426Pic1X2 = 545;
+    public static int Sheet426Pic20X1 = 68;
+    public static int Sheet426Pic20X2 = 477;
+    public static int Sheet426Pic21X1 = 545;
+    public static int Sheet426Pic21X2 = 954;
+    public static int Sheet426PicY1 = 25;
+    public static int Sheet426PicY2 = 230;
+    public static String Sheet426LogIcon = "/iconLog.png";
+
     
     //Sheet 4.2.8 Setting
     public static String Sheet428DefaultProvince = "广东";
