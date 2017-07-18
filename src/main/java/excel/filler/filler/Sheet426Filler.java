@@ -142,16 +142,18 @@ public class Sheet426Filler {
         String log20 = sheet426PDM.getLog20();
         String log21 = sheet426PDM.getLog21();
         Date currentTime = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ExcelConfig.fileDateFormat);
+        String strTime = simpleDateFormat.format(currentTime);
 
         int oleId20 = sheet.getWorkbook().addOlePackage(log20.getBytes()
-                , currentTime.getTime()+ "_host20.log"
-                , currentTime.getTime()+"_host20.log"
-                , currentTime.getTime()+"_host20.log");
+                , strTime + "_host20.log"
+                , strTime +"_host20.log"
+                , strTime +"_host20.log");
 
         int oleId21 = sheet.getWorkbook().addOlePackage(log21.getBytes()
-                , currentTime.getTime()+"_host21.log"
-                , currentTime.getTime()+"_host21.log"
-                , currentTime.getTime()+"_host21.log");
+                , strTime +"_host21.log"
+                , strTime +"_host21.log"
+                , strTime +"_host21.log");
 
         row.setHeightInPoints(ExcelConfig.Sheet426LogCellHeight);
         sheet.setColumnWidth((ExcelConfig.Sheet426Start+1)
@@ -217,11 +219,13 @@ public class Sheet426Filler {
 
         String log3 = sheet426CorePDM.getLog3();
         Date currentTime = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ExcelConfig.fileDateFormat);
+        String strTime = simpleDateFormat.format(currentTime);
 
         int oleId3 = sheet.getWorkbook().addOlePackage(log3.getBytes()
-                , currentTime.getTime()+ "_host3.log"
-                , currentTime.getTime()+"_host3.log"
-                , currentTime.getTime()+"_host3.log");
+                , strTime + "_host3.log"
+                , strTime +"_host3.log"
+                , strTime +"_host3.log");
 
         row.setHeightInPoints(ExcelConfig.Sheet426LogCellHeight);
         sheet.setColumnWidth((ExcelConfig.Sheet426Start+3)
@@ -275,16 +279,18 @@ public class Sheet426Filler {
         String log40 = sheet426CorePDM.getLog40();
         String log41 = sheet426CorePDM.getLog41();
         Date currentTime = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ExcelConfig.fileDateFormat);
+        String strTime = simpleDateFormat.format(currentTime);
 
         int oleId20 = sheet.getWorkbook().addOlePackage(log40.getBytes()
-                , currentTime.getTime()+ "_host40.log"
-                , currentTime.getTime()+"_host40.log"
-                , currentTime.getTime()+"_host40.log");
+                , strTime + "_host40.log"
+                , strTime +"_host40.log"
+                , strTime +"_host40.log");
 
         int oleId21 = sheet.getWorkbook().addOlePackage(log41.getBytes()
-                , currentTime.getTime()+"_host41.log"
-                , currentTime.getTime()+"_host41.log"
-                , currentTime.getTime()+"_host41.log");
+                , strTime +"_host41.log"
+                , strTime +"_host41.log"
+                , strTime +"_host41.log");
 
         row.setHeightInPoints(ExcelConfig.Sheet426LogCellHeight);
         sheet.setColumnWidth((ExcelConfig.Sheet426Start+5)
@@ -385,7 +391,6 @@ public class Sheet426Filler {
 
             for(int i=0; i<pictureData.size(); i++){
                 if(isBytesEqual(picByte, pictureData.get(i).getData())){
-                    //System.out.println("Found Equal Picture, ID " + (i+1));
                     return i+1;
                 }
             }
@@ -395,7 +400,6 @@ public class Sheet426Filler {
 
             for(int i=0; i<pictureData.size(); i++){
                 if(isBytesEqual(picByte, pictureData.get(i).getData())){
-                    //System.out.println("Found Equal Picture, ID " + (i+1));
                     return i+1;
                 }
             }

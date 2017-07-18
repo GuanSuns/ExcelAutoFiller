@@ -29,7 +29,7 @@ public class ExcelConfig {
 
     //Some global settings
     public static String dateFormat = "yyyy/MM/dd HH:mm";
-    public static String fileDateFormat = "yyyyMMdd";
+    public static String fileDateFormat = "yyMMdd";
     public static int daysRecentInstances = 31;
 
     //Default value for null
