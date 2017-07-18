@@ -144,6 +144,7 @@ public class Sheet428Filler {
         Cell cellDate = ExcelUtils.getCell(row, ExcelConfig.Sheet428TimeCellIndex);
         cellDate.setCellStyle(cellStyleDate);
         cellDate.setCellValue(sheet428PDM.getDate());
+        row.getSheet().autoSizeColumn(ExcelConfig.Sheet428TimeCellIndex);
 
         Cell cellOrder = ExcelUtils.getCell(row, ExcelConfig.Sheet428OrderCellIndex);
         cellOrder.setCellStyle(cellStyle);

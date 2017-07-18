@@ -187,5 +187,6 @@ public class Sheet424Filler {
         setDefaultDateCellStyle(cellDateStyle, wb);
         cellDate.setCellStyle(cellDateStyle);
         cellDate.setCellValue(sheet424PDM.getDate());
+        row.getSheet().autoSizeColumn(ExcelConfig.Sheet424TimeCellIndex);
     }
 }
