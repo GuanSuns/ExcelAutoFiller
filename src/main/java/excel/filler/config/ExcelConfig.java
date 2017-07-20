@@ -108,7 +108,7 @@ public class ExcelConfig {
     public static int Sheet424ProvinceCellIndex = 3;
     public static int Sheet424Start = 4;
     public static int Sheet424PersonalBlankStart = 6;
-    public static int Sheet424PersonalBlankEnd = 13;
+    public static int Sheet424PersonalBlankEnd = 9;
     public static int Sheet424CoreBlankStart = 10;
     public static int Sheet424CoreBlankEnd = 13;
     public static int Sheet424DataDistance = 2;
