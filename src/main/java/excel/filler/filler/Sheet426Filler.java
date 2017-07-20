@@ -11,10 +11,7 @@ import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -368,22 +365,9 @@ public class Sheet426Filler {
     }
 
     private static int loadIcon(Workbook wb, ExcelType excelType) throws Exception{
-        URL url = Sheet426Filler.class.getResource(ExcelConfig.Sheet426LogIcon);
-        File pic = new File(url.toURI());
-        FileInputStream fis = new FileInputStream(pic);
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-
-        byte[] b = new byte[1024];
-        int n;
-        while ((n = fis.read(b)) != -1)
-        {
-            bos.write(b, 0, n);
-        }
-        
-        fis.close();
-        bos.close();
-
-        byte[] picByte = bos.toByteArray();
+        InputStream is = Sheet426Filler.class.getResourceAsStream(ExcelConfig.Sheet426LogIcon);
+        byte[] picByte = new byte[is.available()];
+        is.read(picByte);
 
         if(excelType.equals(ExcelType.Xls)){
             HSSFWorkbook wbHSSF = (HSSFWorkbook)wb;

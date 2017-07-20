@@ -1,4 +1,6 @@
 import excel.filler.generator.*;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.junit.Test;
 
 /**
@@ -9,6 +11,7 @@ public class TestAutoFill {
     @Test
     public void testAutoFill(){
         try{
+            /*
             Sheet411Generator.generateCore();
             Sheet411Generator.generatePersonal();
             Sheet421Generator.generateCore();
@@ -25,6 +28,7 @@ public class TestAutoFill {
             Sheet428Generator.generatePersonal();
             Sheet426Generator.generatePersonal();
             Sheet426Generator.generateCore();
+            */
         }catch (Exception e){
             e.printStackTrace();
         }
