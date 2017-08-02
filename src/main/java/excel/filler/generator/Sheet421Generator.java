@@ -15,6 +15,7 @@ import org.suns.database.utils.config.DBConfig;
 import org.suns.database.utils.controller.Sheet421Controller;
 import org.suns.database.utils.model.Sheet421CoreModel;
 import org.suns.database.utils.model.Sheet421PersonalModel;
+import org.suns.inspection.logger.InspectionLogger;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -90,6 +91,8 @@ public class Sheet421Generator {
                 Sheet421Filler.fill(sheet421CorePDM, FileDestination.Core);
             }
         }
+
+        InspectionLogger.debug("Finish filling core 421");
     }
 
     private static void fillPersonalPdmFromModel(Sheet421PersonalPDM pdm, Sheet421PersonalModel model){

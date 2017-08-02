@@ -93,23 +93,23 @@ public class Sheet423Generator {
         pdm.setDate(model.getDate());
         pdm.setOrder1(null);
         pdm.setProvince(null);
-        pdm.setAsmName2(model.getAsmName2());
-        pdm.setTotalSpace2(model.getTotalSpace2());
+        pdm.setAsmName2(model.getName2());
+        pdm.setTotalSpace2(model.getTotalSpace2().intValue());
         pdm.setUsage2(model.getUsage2());
-        pdm.setRemainSpace2(model.getRemainSpace2());
+        pdm.setRemainSpace2(model.getUsedOrRemainSpace2().intValue());
     }
 
     private static void fillCorePdmFromModel(Sheet423CorePDM pdm, Sheet423CoreModel model){
         fillPersonalPdmFromModel(pdm, model);
-        pdm.setAsmName3(model.getAsmName3());
-        pdm.setTotalSpace3(model.getTotalSpace3());
+        pdm.setAsmName3(model.getName3());
+        pdm.setTotalSpace3(model.getTotalSpace3().intValue());
         pdm.setUsage3(model.getUsage3());
-        pdm.setRemainSpace3(model.getRemainSpace3());
+        pdm.setRemainSpace3(model.getUsedOrRemainSpace3().intValue());
 
-        pdm.setAsmName4(model.getAsmName4());
-        pdm.setTotalSpace4(model.getTotalSpace4());
+        pdm.setAsmName4(model.getName4());
+        pdm.setTotalSpace4(model.getTotalSpace4().intValue());
         pdm.setUsage4(model.getUsage4());
-        pdm.setRemainSpace4(model.getRemainSpace4());
+        pdm.setRemainSpace4(model.getUsedOrRemainSpace4().intValue());
     }
 
     private static Date getLatestTime(FileDestination fileDestination) throws Exception{

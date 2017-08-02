@@ -94,23 +94,23 @@ public class Sheet422Generator {
         pdm.setDate(model.getDate());
         pdm.setOrder1(null);
         pdm.setProvince(null);
-        pdm.setTsName2(model.getTsName2());
-        pdm.setTsTotalSpace2(model.getTsTotalSpace2());
-        pdm.setTsUsage2(model.getTsUsage2());
-        pdm.setTsUsedSpace2(model.getTsUsedSpace2());
+        pdm.setTsName2(model.getName2());
+        pdm.setTsTotalSpace2(model.getTotalSpace2());
+        pdm.setTsUsage2(model.getUsage2());
+        pdm.setTsUsedSpace2(model.getUsedOrRemainSpace2());
     }
 
     private static void fillCorePdmFromModel(Sheet422CorePDM pdm, Sheet422CoreModel model){
         fillPersonalPdmFromModel(pdm, model);
-        pdm.setTsName3(model.getTsName3());
-        pdm.setTsTotalSpace3(model.getTsTotalSpace3());
-        pdm.setTsUsage3(model.getTsUsage3());
-        pdm.setTsUsedSpace3(model.getTsUsedSpace3());
+        pdm.setTsName3(model.getName3());
+        pdm.setTsTotalSpace3(model.getTotalSpace3());
+        pdm.setTsUsage3(model.getUsage3());
+        pdm.setTsUsedSpace3(model.getUsedOrRemainSpace3());
 
-        pdm.setTsName4(model.getTsName4());
-        pdm.setTsTotalSpace4(model.getTsTotalSpace4());
-        pdm.setTsUsage4(model.getTsUsage4());
-        pdm.setTsUsedSpace4(model.getTsUsedSpace4());
+        pdm.setTsName4(model.getName4());
+        pdm.setTsTotalSpace4(model.getTotalSpace4());
+        pdm.setTsUsage4(model.getUsage4());
+        pdm.setTsUsedSpace4(model.getUsedOrRemainSpace4());
     }
 
     private static Date getLatestTime(FileDestination fileDestination) throws Exception{

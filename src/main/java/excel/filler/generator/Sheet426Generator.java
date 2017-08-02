@@ -100,8 +100,17 @@ public class Sheet426Generator {
             pdm.setError2(ExcelConfig.Sheet426NoErrorString);
         }
 
-        pdm.setLog20(model.getLog20().replaceAll("\n", "\r\n"));
-        pdm.setLog21(model.getLog21().replaceAll("\n", "\r\n"));
+        if(model.getLog20() == null){
+            pdm.setLog20("");
+        }else{
+            pdm.setLog20(model.getLog20().replaceAll("\n", "\r\n"));
+        }
+
+        if(model.getLog21() == null){
+            pdm.setLog21("");
+        }else{
+            pdm.setLog21(model.getLog21().replaceAll("\n", "\r\n"));
+        }
     }
 
     private static void fillCorePdmFromModel(Sheet426CorePDM pdm, Sheet426CoreModel model){
@@ -113,7 +122,11 @@ public class Sheet426Generator {
             pdm.setError3(ExcelConfig.Sheet426NoErrorString);
         }
 
-        pdm.setLog3(model.getLog3().replaceAll("\n", "\r\n"));
+        if(model.getLog3() == null){
+            pdm.setLog3("");
+        }else{
+            pdm.setLog3(model.getLog3().replaceAll("\n", "\r\n"));
+        }
 
         if(model.getErrorInfo40() == 1 || model.getErrorInfo41() == 1){
             pdm.setError4(ExcelConfig.Sheet426ErrorString);
@@ -121,8 +134,18 @@ public class Sheet426Generator {
             pdm.setError4(ExcelConfig.Sheet426NoErrorString);
         }
 
-        pdm.setLog40(model.getLog40().replaceAll("\n", "\r\n"));
-        pdm.setLog41(model.getLog41().replaceAll("\n", "\r\n"));
+        if(model.getLog40() == null){
+            pdm.setLog40("");
+        }else{
+            pdm.setLog40(model.getLog40().replaceAll("\n", "\r\n"));
+        }
+
+        if(model.getLog41() == null){
+            pdm.setLog41("");
+        }else{
+            pdm.setLog41(model.getLog41().replaceAll("\n", "\r\n"));
+        }
+
     }
 
     private static Date getLatestTime(FileDestination fileDestination) throws Exception{
