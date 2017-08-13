@@ -53,7 +53,43 @@ public class DailyDBExcelConfig {
     private static int DBTimeCellIndex = 1;
     private static int DBHostNamesIndex = 2;
     private static int DBStart = 3;
-    private static int DBEnd = 9;
+    private static int DBEnd = 11;
+
+    private static int cpuUsageIndex = 3;
+    private static int memoryUsageIndex = 4;
+    private static int archiveUsageIndex = 5;
+    private static int longTermLockIndex = 6;
+    private static int tableSpaceCheckIndex = 7;
+    private static int alertLogIndex = 8;
+    private static int diskBusyIndex = 9;
+
+    public static int getCpuUsageIndex() {
+        return cpuUsageIndex;
+    }
+
+    public static int getMemoryUsageIndex() {
+        return memoryUsageIndex;
+    }
+
+    public static int getArchiveUsageIndex() {
+        return archiveUsageIndex;
+    }
+
+    public static int getLongTermLockIndex() {
+        return longTermLockIndex;
+    }
+
+    public static int getTableSpaceCheckIndex() {
+        return tableSpaceCheckIndex;
+    }
+
+    public static int getAlertLogIndex() {
+        return alertLogIndex;
+    }
+
+    public static int getDiskBusyIndex() {
+        return diskBusyIndex;
+    }
 
     public static String[] getCoreInspectClustersNames() {
         return coreInspectClustersNames;

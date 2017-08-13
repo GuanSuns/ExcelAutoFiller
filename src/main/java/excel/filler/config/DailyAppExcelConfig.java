@@ -49,7 +49,7 @@ public class DailyAppExcelConfig {
     private static int AppTimeCellIndex = 1;
     private static int AppHostNamesIndex = 2;
     private static int AppStart = 3;
-    private static int AppEnd = 9;
+    private static int AppEnd = 10;
 
     private static int cpuUsageIndex = 3;
     private static int memoryUsageIndex = 4;

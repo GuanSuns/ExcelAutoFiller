@@ -14,7 +14,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
-public class DailyInspectionFiller {
+public class DailyInspectionAppFiller {
 
     public static void fill(DailyAppInspectionPDM dailyAppPDM
             , FileDestination destination) throws Exception{
