@@ -143,7 +143,7 @@ public class Sheet422Filler {
         ExcelUtils.initDefaultCellStyle(cellDateStyle, font);
 
         Cell cellDate = ExcelUtils.getCell(row, ExcelConfig.Sheet422InspectTimeCellIndex);
-        setDefaultDateCellStyle(cellDateStyle, wb);
+        ExcelUtils.setDefaultDateCellStyle(cellDateStyle, wb);
         cellDate.setCellStyle(cellDateStyle);
         cellDate.setCellValue(sheet422PDM.getDate());
         row.getSheet().autoSizeColumn(ExcelConfig.Sheet422InspectTimeCellIndex);

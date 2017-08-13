@@ -51,6 +51,53 @@ public class DailyAppExcelConfig {
     private static int AppStart = 3;
     private static int AppEnd = 9;
 
+    private static int cpuUsageIndex = 3;
+    private static int memoryUsageIndex = 4;
+    private static int softwareDirectoryUsageIndex = 5;
+    private static int svrStateIndex = 6;
+    private static int hoggingThreadCntIndex = 7;
+    private static int jdbcStateIndex = 8;
+    private static int jdbcConnectionCntIndex = 9;
+
+    private static String descriptionIsRunning = "是";
+    private static String descriptionNotRunning = "否";
+
+    public static int getCpuUsageIndex() {
+        return cpuUsageIndex;
+    }
+
+    public static int getMemoryUsageIndex() {
+        return memoryUsageIndex;
+    }
+
+    public static int getSoftwareDirectoryUsageIndex() {
+        return softwareDirectoryUsageIndex;
+    }
+
+    public static int getSvrStateIndex() {
+        return svrStateIndex;
+    }
+
+    public static int getHoggingThreadCntIndex() {
+        return hoggingThreadCntIndex;
+    }
+
+    public static int getJdbcStateIndex() {
+        return jdbcStateIndex;
+    }
+
+    public static int getJdbcConnectionCntIndex() {
+        return jdbcConnectionCntIndex;
+    }
+
+    public static String getDescriptionIsRunning() {
+        return descriptionIsRunning;
+    }
+
+    public static String getDescriptionNotRunning() {
+        return descriptionNotRunning;
+    }
+
     public static String[] getCoreInspectClustersNames() {
         return coreInspectClustersNames;
     }

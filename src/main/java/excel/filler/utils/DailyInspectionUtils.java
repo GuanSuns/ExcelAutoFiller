@@ -22,7 +22,7 @@ public class DailyInspectionUtils {
             , Timestamp pdmInspectTime, String clusterName
             , int lastRowIndex
             , int dayCellIndex, int hourIndex, int nameListIndex
-            , int startIndex, int endIndex
+            , int startIndex, int endIndex, String[] printedNameList
             , String[] nameList, Calendar[] inspectTimes) throws Exception{
 
         Row row = ExcelUtils.getRow(sheet, lastRowIndex);
@@ -48,7 +48,7 @@ public class DailyInspectionUtils {
                         , nameListIndex
                         , startIndex
                         , endIndex
-                        , nameList
+                        , printedNameList
                         , inspectTimes);
                 return getIndex(nameList, clusterName, inspectTimes
                         , inspectTime, newRowIndex);
@@ -63,7 +63,7 @@ public class DailyInspectionUtils {
                     , nameListIndex
                     , startIndex
                     , endIndex
-                    , nameList
+                    , printedNameList
                     , inspectTimes);
             return getIndex(nameList, clusterName, inspectTimes
                     , inspectTime, lastRowIndex);
@@ -74,7 +74,7 @@ public class DailyInspectionUtils {
             , Calendar inspectTime, int newRowIndex
             , int dayCellIndex, int hourIndex, int nameListIndex
             , int startIndex, int endIndex
-            , String[] nameList, Calendar[] inspectTimes) throws Exception{
+            , String[] printedNameList, Calendar[] inspectTimes) throws Exception{
 
         Row row = ExcelUtils.getRow(sheet, newRowIndex);
         Workbook wb = sheet.getWorkbook();
@@ -96,14 +96,14 @@ public class DailyInspectionUtils {
         dayDateCell.getSheet().autoSizeColumn(dayCellIndex);
 
         CellRangeAddress dayCellRange = new CellRangeAddress(newRowIndex
-                , newRowIndex + nameList.length * inspectTimes.length - 1
+                , newRowIndex + printedNameList.length * inspectTimes.length - 1
                 , dayCellIndex, dayCellIndex);
 
         sheet.addMergedRegion(dayCellRange);
         ExcelUtils.setMergeRegionBorder(sheet, dayCellRange);
 
         for(int i=0; i<inspectTimes.length; i++){
-            int timeCellStartRow = newRowIndex + i*nameList.length;
+            int timeCellStartRow = newRowIndex + i*printedNameList.length;
 
             Row timeRow = ExcelUtils.getRow(sheet, timeCellStartRow);
             Cell timeDateCell = ExcelUtils.getCell(timeRow, hourIndex);
@@ -111,18 +111,18 @@ public class DailyInspectionUtils {
             timeDateCell.setCellValue(inspectTimes[i]);
 
             CellRangeAddress timeCellRange = new CellRangeAddress(timeCellStartRow
-                    , timeCellStartRow + nameList.length - 1
+                    , timeCellStartRow + printedNameList.length - 1
                     , hourIndex, hourIndex);
 
             sheet.addMergedRegion(timeCellRange);
             ExcelUtils.setMergeRegionBorder(sheet, timeCellRange);
 
-            for (int j=0; j<nameList.length; j++){
+            for (int j=0; j<printedNameList.length; j++){
                 int nameRowIndex = timeCellStartRow + j;
                 Row nameRow = ExcelUtils.getRow(sheet, nameRowIndex);
                 Cell nameCell = ExcelUtils.getCell(nameRow, nameListIndex);
                 nameCell.setCellStyle(cellStyle);
-                nameCell.setCellValue(nameList[j]);
+                nameCell.setCellValue(printedNameList[j]);
                 ExcelUtils.fillRowWithBlank(nameRow, startIndex, endIndex);
             }
         }

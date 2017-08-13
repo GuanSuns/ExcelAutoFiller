@@ -6,13 +6,13 @@ import excel.filler.config.POIConfig;
 import excel.filler.model.DailyAppInspectionPDM;
 import excel.filler.utils.DailyInspectionUtils;
 import excel.filler.utils.ExcelUtils;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.usermodel.*;
+import org.suns.inspection.logger.InspectionLogger;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 public class DailyInspectionFiller {
 
@@ -48,7 +48,7 @@ public class DailyInspectionFiller {
                     + DailyAppExcelConfig.getSheetName());
         }
 
-        insert(sheetDailyApp, dailyAppPDM);
+        insert(sheetDailyApp, dailyAppPDM, destination);
 
         //Safely save and close workbook
         is.close();
@@ -59,7 +59,8 @@ public class DailyInspectionFiller {
     }
 
     private static void insert(Sheet sheetDailyApp
-            , DailyAppInspectionPDM dailyAppPDM) throws Exception{
+            , DailyAppInspectionPDM dailyAppPDM
+            , FileDestination destination) throws Exception{
 
         int lastRowIndex = ExcelUtils.getLastRow(sheetDailyApp
                 , DailyAppExcelConfig.getAppRecordStartRow()
@@ -67,6 +68,16 @@ public class DailyInspectionFiller {
 
         if(lastRowIndex == DailyAppExcelConfig.getAppRecordStartRow() - 1){
             lastRowIndex++;
+        }
+
+        InspectionLogger.info("Calculating row index for new daily App PDM \'"
+                + dailyAppPDM.getClusterName() + "\'");
+
+        String[] printedNameList;
+        if(destination.equals(FileDestination.Core)){
+            printedNameList = DailyAppExcelConfig.getCoreInspectClustersPrintedNames();
+        }else{
+            printedNameList = DailyAppExcelConfig.getPersonalInspectClustersPrintedNames();
         }
 
         Integer newRowIndex = DailyInspectionUtils.getRowIndexAndCreateFrame(sheetDailyApp
@@ -77,8 +88,47 @@ public class DailyInspectionFiller {
                 , DailyAppExcelConfig.getAppHostNamesIndex()
                 , DailyAppExcelConfig.getAppStart()
                 , DailyAppExcelConfig.getAppEnd()
+                , printedNameList
                 , DailyAppExcelConfig.getCoreInspectClustersNames()
                 , DailyAppExcelConfig.getInspectTimes());
 
+        if(newRowIndex != null){
+            return;
+        }
+
+        InspectionLogger.info("Adding new daily App PDM \'"
+                + dailyAppPDM.getClusterName() + "\', New row index is " + newRowIndex);
+
+        Row newRow = ExcelUtils.getRow(sheetDailyApp, newRowIndex);
+
+        ArrayList<Float> dataFloat = new ArrayList<>();
+        dataFloat.add(dailyAppPDM.getCpuUsage());
+        dataFloat.add(dailyAppPDM.getMemoryUsage());
+        dataFloat.add(dailyAppPDM.getSoftwareDirectoryUsage());
+        ExcelUtils.fillRowWithPercentage(newRow, DailyAppExcelConfig.getCpuUsageIndex()
+                , DailyAppExcelConfig.getSoftwareDirectoryUsageIndex()+1
+                , dataFloat, false);
+
+        Workbook wb = sheetDailyApp.getWorkbook();
+        CellStyle cellStyle = wb.createCellStyle();
+        Font font = wb.createFont();
+        //Set cell style to default style
+        ExcelUtils.initDefaultCellStyle(cellStyle, font);
+
+        Cell cellSvrState = ExcelUtils.getCell(newRow, DailyAppExcelConfig.getSvrStateIndex());
+        cellSvrState.setCellStyle(cellStyle);
+        cellSvrState.setCellValue(dailyAppPDM.getSvrState());
+
+        Cell cellHoggingThreadCnt = ExcelUtils.getCell(newRow, DailyAppExcelConfig.getHoggingThreadCntIndex());
+        cellHoggingThreadCnt.setCellStyle(cellStyle);
+        cellHoggingThreadCnt.setCellValue(dailyAppPDM.getHoggingThreadCnt());
+
+        Cell cellJdbcRunningState = ExcelUtils.getCell(newRow, DailyAppExcelConfig.getJdbcStateIndex());
+        cellJdbcRunningState.setCellStyle(cellStyle);
+        cellJdbcRunningState.setCellValue(dailyAppPDM.getJdbcState());
+
+        Cell cellJdbcConnectionCnt = ExcelUtils.getCell(newRow, DailyAppExcelConfig.getJdbcConnectionCntIndex());
+        cellJdbcConnectionCnt.setCellStyle(cellStyle);
+        cellJdbcConnectionCnt.setCellValue(dailyAppPDM.getJdbcConnectionCnt());
     }
 }
