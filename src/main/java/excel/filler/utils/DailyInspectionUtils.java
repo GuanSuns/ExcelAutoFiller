@@ -25,10 +25,12 @@ public class DailyInspectionUtils {
             , int startIndex, int endIndex, String[] printedNameList
             , String[] nameList, Calendar[] inspectTimes) throws Exception{
 
+        for(int i=0 ; i<nameList.length; i++){
+            System.out.println(nameList[i] + ", " + printedNameList[i]);
+        }
+
         Row row = ExcelUtils.getRow(sheet, lastRowIndex);
         Cell cellID = ExcelUtils.getCell(row, dayCellIndex);
-        Calendar frameDate = Calendar.getInstance();
-        frameDate.setTime(cellID.getDateCellValue());
 
         Calendar inspectTime = Calendar.getInstance();
         inspectTime.setTime(pdmInspectTime);
@@ -36,10 +38,19 @@ public class DailyInspectionUtils {
         if(DateUtil.isCellDateFormatted(cellID)
                 && cellID.getDateCellValue()!= null){
 
+            Calendar frameDate = Calendar.getInstance();
+            frameDate.setTime(cellID.getDateCellValue());
+
             if(isInSameDay(frameDate, inspectTime)){
                 return getIndex(nameList, clusterName, inspectTimes
                         , inspectTime, lastRowIndex);
             }else if(isLaterThan(frameDate, inspectTime)){
+
+                System.out.println("last row: " + lastRowIndex
+                        + ", name list length: " + nameList.length
+                        + ", inspect time list length: " + inspectTimes.length);
+
+
                 int newRowIndex = lastRowIndex + nameList.length * inspectTimes.length;
                 createNewFrame(sheet, inspectTime
                         , newRowIndex
@@ -56,6 +67,8 @@ public class DailyInspectionUtils {
                 return null;
             }
         }else{
+            System.out.println("First line");
+
             createNewFrame(sheet, inspectTime
                     , lastRowIndex
                     , dayCellIndex
@@ -75,6 +88,8 @@ public class DailyInspectionUtils {
             , int dayCellIndex, int hourIndex, int nameListIndex
             , int startIndex, int endIndex
             , String[] printedNameList, Calendar[] inspectTimes) throws Exception{
+
+        System.out.println("Creating Frame starts at row " + newRowIndex);
 
         Row row = ExcelUtils.getRow(sheet, newRowIndex);
         Workbook wb = sheet.getWorkbook();
@@ -103,6 +118,9 @@ public class DailyInspectionUtils {
         ExcelUtils.setMergeRegionBorder(sheet, dayCellRange);
 
         for(int i=0; i<inspectTimes.length; i++){
+
+            System.out.println("Creating frame item " + inspectTimes[i].get(Calendar.HOUR_OF_DAY));
+
             int timeCellStartRow = newRowIndex + i*printedNameList.length;
 
             Row timeRow = ExcelUtils.getRow(sheet, timeCellStartRow);

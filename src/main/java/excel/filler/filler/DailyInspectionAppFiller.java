@@ -70,14 +70,19 @@ public class DailyInspectionAppFiller {
             lastRowIndex++;
         }
 
+        System.out.println("Last Row Index " + lastRowIndex);
+
         InspectionLogger.info("Calculating row index for new daily App PDM \'"
                 + dailyAppPDM.getClusterName() + "\'");
 
         String[] printedNameList;
+        String[] nameList;
         if(destination.equals(FileDestination.Core)){
             printedNameList = DailyAppExcelConfig.getCoreInspectClustersPrintedNames();
+            nameList = DailyAppExcelConfig.getCoreInspectClustersNames();
         }else{
             printedNameList = DailyAppExcelConfig.getPersonalInspectClustersPrintedNames();
+            nameList = DailyAppExcelConfig.getPersonalInspectClustersNames();
         }
 
         Integer newRowIndex = DailyInspectionUtils.getRowIndexAndCreateFrame(sheetDailyApp
@@ -89,10 +94,10 @@ public class DailyInspectionAppFiller {
                 , DailyAppExcelConfig.getAppStart()
                 , DailyAppExcelConfig.getAppEnd()
                 , printedNameList
-                , DailyAppExcelConfig.getCoreInspectClustersNames()
+                , nameList
                 , DailyAppExcelConfig.getInspectTimes());
 
-        if(newRowIndex != null){
+        if(newRowIndex == null){
             return;
         }
 

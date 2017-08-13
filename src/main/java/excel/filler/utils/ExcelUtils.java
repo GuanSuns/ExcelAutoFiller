@@ -247,8 +247,6 @@ public class ExcelUtils {
     public static int getLastRow(Sheet sheet, int startRow, int idIndex) throws Exception{
         int lastIndex = sheet.getLastRowNum();
 
-        System.out.println("System Last Row " + lastIndex);
-
         if(lastIndex == startRow) return lastIndex;
 
         for(int i = lastIndex; i >= startRow; i--){
