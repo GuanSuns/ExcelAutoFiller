@@ -63,6 +63,27 @@ public class DailyDBExcelConfig {
     private static int alertLogIndex = 8;
     private static int diskBusyIndex = 9;
 
+    private static String descriptionHasException = "有";
+    private static String descriptionNoException = "无";
+    private static String descriptionHasOverloadedTable = "是";
+    private static String descriptionNoOverloadedTable = "否";
+
+    public static String getDescriptionHasException() {
+        return descriptionHasException;
+    }
+
+    public static String getDescriptionNoException() {
+        return descriptionNoException;
+    }
+
+    public static String getDescriptionHasOverloadedTable() {
+        return descriptionHasOverloadedTable;
+    }
+
+    public static String getDescriptionNoOverloadedTable() {
+        return descriptionNoOverloadedTable;
+    }
+
     public static int getCpuUsageIndex() {
         return cpuUsageIndex;
     }

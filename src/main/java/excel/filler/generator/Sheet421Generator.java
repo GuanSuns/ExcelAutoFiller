@@ -28,7 +28,7 @@ import java.util.Date;
 public class Sheet421Generator {
 
     public static void generatePersonal() throws Exception{
-        Date latestDate = null;
+        Date latestDate ;
         try{
             latestDate = getLatestTime(FileDestination.Personal);
         }catch (Exception e){
@@ -60,7 +60,7 @@ public class Sheet421Generator {
     }
 
     public static void generateCore() throws Exception{
-        Date latestDate = null;
+        Date latestDate;
         try{
             latestDate = getLatestTime(FileDestination.Core);
         }catch (Exception e){
