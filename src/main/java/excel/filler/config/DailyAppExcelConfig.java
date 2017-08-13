@@ -16,23 +16,31 @@ public class DailyAppExcelConfig {
         inspectTimes[0] = time1;
 
         Calendar time2 = Calendar.getInstance();
-        time2.set(Calendar.HOUR_OF_DAY, 11);
+        time2.set(Calendar.HOUR_OF_DAY, 10);
         time2.set(Calendar.MINUTE, 0);
         inspectTimes[1] = time2;
 
         Calendar time3 = Calendar.getInstance();
-        time3.set(Calendar.HOUR_OF_DAY, 17);
+        time3.set(Calendar.HOUR_OF_DAY, 12);
         time3.set(Calendar.MINUTE, 0);
         inspectTimes[2] = time3;
 
         return inspectTimes;
     }
 
-    private static String[] inspectHostNames = {"hxqd", "mhwb_wfbs", "hxhd_dsrw"
+    private static String[] personalInspectClustersNames = {"hxqd", "mhwb_wfbs", "hxhd_dsrw"
             , "tycx_jnap", "hxwf_mhap_jcpt"
             , "kcpt", "osb"};
 
-    private static String[] inspectHostPrintedNames = {"hxqd", "mhwb_wfbs", "hxhd_dsrw"
+    private static String[] personalInspectClustersPrintedNames = {"hxqd", "mhwb_wfbs", "hxhd_dsrw"
+            , "tycx_jnap", "hxwf_mhap_jcpt"
+            , "kcpt", "osb"};
+
+    private static String[] coreInspectClustersNames = {"hxqd", "mhwb_wfbs", "hxhd_dsrw"
+            , "tycx_jnap", "hxwf_mhap_jcpt"
+            , "kcpt", "osb"};
+
+    private static String[] coreInspectClustersPrintedNames = {"hxqd", "mhwb_wfbs", "hxhd_dsrw"
             , "tycx_jnap", "hxwf_mhap_jcpt"
             , "kcpt", "osb"};
 
@@ -42,6 +50,22 @@ public class DailyAppExcelConfig {
     private static int AppHostNamesIndex = 2;
     private static int AppStart = 3;
     private static int AppEnd = 9;
+
+    public static String[] getCoreInspectClustersNames() {
+        return coreInspectClustersNames;
+    }
+
+    public static void setCoreInspectClustersNames(String[] coreInspectClustersNames) {
+        DailyAppExcelConfig.coreInspectClustersNames = coreInspectClustersNames;
+    }
+
+    public static String[] getCoreInspectClustersPrintedNames() {
+        return coreInspectClustersPrintedNames;
+    }
+
+    public static void setCoreInspectClustersPrintedNames(String[] coreInspectClustersPrintedNames) {
+        DailyAppExcelConfig.coreInspectClustersPrintedNames = coreInspectClustersPrintedNames;
+    }
 
     public static String getSheetName() {
         return sheetName;
@@ -59,20 +83,20 @@ public class DailyAppExcelConfig {
         DailyAppExcelConfig.inspectTimes = inspectTimes;
     }
 
-    public static String[] getInspectHostNames() {
-        return inspectHostNames;
+    public static String[] getPersonalInspectClustersNames() {
+        return personalInspectClustersNames;
     }
 
-    public static void setInspectHostNames(String[] inspectHostNames) {
-        DailyAppExcelConfig.inspectHostNames = inspectHostNames;
+    public static void setPersonalInspectClustersNames(String[] personalInspectClustersNames) {
+        DailyAppExcelConfig.personalInspectClustersNames = personalInspectClustersNames;
     }
 
-    public static String[] getInspectHostPrintedNames() {
-        return inspectHostPrintedNames;
+    public static String[] getPersonalInspectClustersPrintedNames() {
+        return personalInspectClustersPrintedNames;
     }
 
-    public static void setInspectHostPrintedNames(String[] inspectHostPrintedNames) {
-        DailyAppExcelConfig.inspectHostPrintedNames = inspectHostPrintedNames;
+    public static void setPersonalInspectClustersPrintedNames(String[] personalInspectClustersPrintedNames) {
+        DailyAppExcelConfig.personalInspectClustersPrintedNames = personalInspectClustersPrintedNames;
     }
 
     public static int getAppRecordStartRow() {

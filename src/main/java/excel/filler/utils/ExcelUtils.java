@@ -1,13 +1,17 @@
 package excel.filler.utils;
 
+
 import excel.filler.config.ExcelConfig;
 import org.apache.poi.ss.usermodel.*;
-import org.suns.database.utils.config.DBConfig;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
+import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.ss.util.RegionUtil;
+import org.suns.database.utils.config.DBConfig;
 
 /**
  * Created by guanl on 6/19/2017.
@@ -50,6 +54,13 @@ public class ExcelUtils {
         cellStyle.setLeftBorderColor(ExcelConfig.borderColor);
         cellStyle.setBorderRight(ExcelConfig.borderStyle);
         cellStyle.setRightBorderColor(ExcelConfig.borderColor);
+    }
+
+    public static void setMergeRegionBorder(Sheet sheet, CellRangeAddress range){
+        RegionUtil.setBorderBottom(ExcelConfig.borderStyle, range, sheet);
+        RegionUtil.setBorderLeft(ExcelConfig.borderStyle, range, sheet);
+        RegionUtil.setBorderTop(ExcelConfig.borderStyle, range, sheet);
+        RegionUtil.setBorderRight(ExcelConfig.borderStyle, range, sheet);
     }
 
     //Set inner alignment to center (both horizontal and vertical alignment)
@@ -235,6 +246,9 @@ public class ExcelUtils {
 
     public static int getLastRow(Sheet sheet, int startRow, int idIndex) throws Exception{
         int lastIndex = sheet.getLastRowNum();
+
+        System.out.println("System Last Row " + lastIndex);
+
         if(lastIndex == startRow) return lastIndex;
 
         for(int i = lastIndex; i >= startRow; i--){
