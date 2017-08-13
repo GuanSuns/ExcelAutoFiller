@@ -14,13 +14,9 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.suns.database.utils.controller.Sheet411Controller;
 import org.suns.database.utils.model.Sheet411CoreModel;
 import org.suns.database.utils.model.Sheet411PersonalModel;
-import org.suns.database.utils.model.Sheet421PersonalModel;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -122,10 +118,10 @@ public class Sheet411Generator {
         File destFile;
         if(fileDestination.equals(FileDestination.Personal)){
             destFile = new File(POIConfig.RootDirectory
-                    + POIConfig.PersonalSystemFile);
+                    + POIConfig.MonthlyPersonalFile);
         }else{
             destFile = new File(POIConfig.RootDirectory
-                    + POIConfig.CoreSystemFile);
+                    + POIConfig.MonthlyCoreFile);
         }
 
         //Check if the file exists

@@ -109,10 +109,10 @@ public class Sheet428Generator {
         File destFile;
         if(fileDestination.equals(FileDestination.Personal)){
             destFile = new File(POIConfig.RootDirectory
-                    + POIConfig.PersonalSystemFile);
+                    + POIConfig.MonthlyPersonalFile);
         }else{
             destFile = new File(POIConfig.RootDirectory
-                    + POIConfig.CoreSystemFile);
+                    + POIConfig.MonthlyCoreFile);
         }
 
         //Check if the file exists

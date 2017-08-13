@@ -12,10 +12,8 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
 
 import java.io.*;
-import java.net.URL;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,10 +35,10 @@ public class Sheet426Filler {
         File destFile = null;
         if(destination.equals(FileDestination.Core)){
             destFile = new File(POIConfig.RootDirectory
-                    + POIConfig.CoreSystemFile);
+                    + POIConfig.MonthlyCoreFile);
         }else{
             destFile = new File(POIConfig.RootDirectory
-                    + POIConfig.PersonalSystemFile);
+                    + POIConfig.MonthlyPersonalFile);
         }
 
         //Check if the file exists

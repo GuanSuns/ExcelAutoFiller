@@ -27,10 +27,10 @@ public class Sheet428Filler {
         File destFile = null;
         if(destination.equals(FileDestination.Core)){
             destFile = new File(POIConfig.RootDirectory
-                    + POIConfig.CoreSystemFile);
+                    + POIConfig.MonthlyCoreFile);
         }else{
             destFile = new File(POIConfig.RootDirectory
-                    + POIConfig.PersonalSystemFile);
+                    + POIConfig.MonthlyPersonalFile);
         }
 
         //Check if the file exists

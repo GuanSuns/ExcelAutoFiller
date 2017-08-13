@@ -17,8 +17,6 @@ import org.suns.database.utils.model.Sheet422PersonalModel;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -118,10 +116,10 @@ public class Sheet422Generator {
         File destFile;
         if(fileDestination.equals(FileDestination.Personal)){
             destFile = new File(POIConfig.RootDirectory
-                    + POIConfig.PersonalSystemFile);
+                    + POIConfig.MonthlyPersonalFile);
         }else{
             destFile = new File(POIConfig.RootDirectory
-                    + POIConfig.CoreSystemFile);
+                    + POIConfig.MonthlyCoreFile);
         }
 
         //Check if the file exists
