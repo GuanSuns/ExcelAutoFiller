@@ -73,14 +73,18 @@ public class DailyInspectionDBFiller {
                 + dailyDBPDM.getClusterName() + "\'");
 
         String[] printedNameList;
+        String[] nameList;
         if(destination.equals(FileDestination.Core)){
             printedNameList = DailyDBExcelConfig.getCoreInspectClustersPrintedNames();
+            nameList = DailyDBExcelConfig.getCoreInspectClustersNames();
         }else{
             printedNameList = DailyDBExcelConfig.getPersonalInspectClustersPrintedNames();
+            nameList = DailyDBExcelConfig.getPersonalInspectClustersNames();
         }
 
         Integer newRowIndex = DailyInspectionUtils.getRowIndexAndCreateFrame(sheetDailyDB
-                , dailyDBPDM.getInspectTime(), dailyDBPDM.getClusterName()
+                , dailyDBPDM.getInspectTime()
+                , dailyDBPDM.getClusterName()
                 , lastRowIndex
                 , DailyDBExcelConfig.getDBDayCellIndex()
                 , DailyDBExcelConfig.getDBTimeCellIndex()
@@ -88,10 +92,10 @@ public class DailyInspectionDBFiller {
                 , DailyDBExcelConfig.getDBStart()
                 , DailyDBExcelConfig.getDBEnd()
                 , printedNameList
-                , DailyDBExcelConfig.getCoreInspectClustersNames()
+                , nameList
                 , DailyDBExcelConfig.getInspectTimes());
 
-        if(newRowIndex != null){
+        if(newRowIndex == null){
             return;
         }
 

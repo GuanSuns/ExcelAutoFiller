@@ -25,10 +25,6 @@ public class DailyInspectionUtils {
             , int startIndex, int endIndex, String[] printedNameList
             , String[] nameList, Calendar[] inspectTimes) throws Exception{
 
-        for(int i=0 ; i<nameList.length; i++){
-            System.out.println(nameList[i] + ", " + printedNameList[i]);
-        }
-
         Row row = ExcelUtils.getRow(sheet, lastRowIndex);
         Cell cellID = ExcelUtils.getCell(row, dayCellIndex);
 
@@ -46,11 +42,6 @@ public class DailyInspectionUtils {
                         , inspectTime, lastRowIndex);
             }else if(isLaterThan(frameDate, inspectTime)){
 
-                System.out.println("last row: " + lastRowIndex
-                        + ", name list length: " + nameList.length
-                        + ", inspect time list length: " + inspectTimes.length);
-
-
                 int newRowIndex = lastRowIndex + nameList.length * inspectTimes.length;
                 createNewFrame(sheet, inspectTime
                         , newRowIndex
@@ -67,7 +58,6 @@ public class DailyInspectionUtils {
                 return null;
             }
         }else{
-            System.out.println("First line");
 
             createNewFrame(sheet, inspectTime
                     , lastRowIndex
@@ -89,7 +79,6 @@ public class DailyInspectionUtils {
             , int startIndex, int endIndex
             , String[] printedNameList, Calendar[] inspectTimes) throws Exception{
 
-        System.out.println("Creating Frame starts at row " + newRowIndex);
 
         Row row = ExcelUtils.getRow(sheet, newRowIndex);
         Workbook wb = sheet.getWorkbook();
@@ -119,8 +108,6 @@ public class DailyInspectionUtils {
 
         for(int i=0; i<inspectTimes.length; i++){
 
-            System.out.println("Creating frame item " + inspectTimes[i].get(Calendar.HOUR_OF_DAY));
-
             int timeCellStartRow = newRowIndex + i*printedNameList.length;
 
             Row timeRow = ExcelUtils.getRow(sheet, timeCellStartRow);
@@ -128,12 +115,14 @@ public class DailyInspectionUtils {
             timeDateCell.setCellStyle(cellTimeDateStyle);
             timeDateCell.setCellValue(inspectTimes[i]);
 
-            CellRangeAddress timeCellRange = new CellRangeAddress(timeCellStartRow
-                    , timeCellStartRow + printedNameList.length - 1
-                    , hourIndex, hourIndex);
+            if(printedNameList.length > 1){
+                CellRangeAddress timeCellRange = new CellRangeAddress(timeCellStartRow
+                        , timeCellStartRow + printedNameList.length - 1
+                        , hourIndex, hourIndex);
 
-            sheet.addMergedRegion(timeCellRange);
-            ExcelUtils.setMergeRegionBorder(sheet, timeCellRange);
+                sheet.addMergedRegion(timeCellRange);
+                ExcelUtils.setMergeRegionBorder(sheet, timeCellRange);
+            }
 
             for (int j=0; j<printedNameList.length; j++){
                 int nameRowIndex = timeCellStartRow + j;

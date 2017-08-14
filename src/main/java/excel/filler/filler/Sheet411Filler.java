@@ -145,6 +145,10 @@ public class Sheet411Filler {
         cellProvince.setCellStyle(cellStyle);
         cellProvince.setCellValue(sheet411PDM.getProvince());
 
+        Cell cellBatch = ExcelUtils.getCell(row, ExcelConfig.Sheet411BatchCellIndex);
+        cellBatch.setCellStyle(cellStyle);
+        cellBatch.setCellValue("");
+
         if(destination.equals(FileDestination.Personal)){
             Cell cellRemark = ExcelUtils.getCell(row, ExcelConfig.Sheet411PersonalRemarkIndex);
             cellRemark.setCellStyle(cellStyle);

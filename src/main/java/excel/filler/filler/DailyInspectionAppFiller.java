@@ -70,8 +70,6 @@ public class DailyInspectionAppFiller {
             lastRowIndex++;
         }
 
-        System.out.println("Last Row Index " + lastRowIndex);
-
         InspectionLogger.info("Calculating row index for new daily App PDM \'"
                 + dailyAppPDM.getClusterName() + "\'");
 

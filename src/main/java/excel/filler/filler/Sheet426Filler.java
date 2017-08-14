@@ -10,10 +10,12 @@ import excel.filler.utils.ExcelUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
+import org.suns.database.utils.model.Sheet426CoreModel;
 
 import java.io.*;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class Sheet426Filler {
             throw new Exception("Invalid null arguments");
         }
 
-        File destFile = null;
+        File destFile;
         if(destination.equals(FileDestination.Core)){
             destFile = new File(POIConfig.RootDirectory
                     + POIConfig.MonthlyCoreFile);
@@ -94,27 +96,22 @@ public class Sheet426Filler {
         setBasicProperties(row, sheet426PDM, destination);
         sheet426.autoSizeColumn(ExcelConfig.Sheet426TimeCellIndex);
 
-        Workbook wb = row.getSheet().getWorkbook();               
+        ArrayList<String> errorInfos = new ArrayList<>();
+        errorInfos.add(sheet426PDM.getError2());
 
-        ExcelType excelType;
-        if(sheet426 instanceof XSSFSheet){
-            excelType = ExcelType.Xlsx;
-            iconID = loadIcon(wb, ExcelType.Xlsx);
-            insertLog2(sheet426PDM, sheet426, ExcelType.Xlsx, index, row);
-        }else{
-            excelType = ExcelType.Xls;
-            iconID = loadIcon(wb, ExcelType.Xls);
-            insertLog2(sheet426PDM, sheet426, ExcelType.Xls, index, row);
-        }        
+        if(destination.equals(FileDestination.Core)){
+            Sheet426CorePDM corePDM = (Sheet426CorePDM)sheet426PDM;
+            errorInfos.add(corePDM.getError3());
+            errorInfos.add(corePDM.getError4());
+            errorInfos.add(corePDM.getError3());
+        }
 
         if(destination.equals(FileDestination.Personal)){
-            ExcelUtils.fillRowWithBlank(row, ExcelConfig.Sheet426PersonalBlankStart
-                    , ExcelConfig.Sheet426PersonalBlankEnd);
+            ExcelUtils.fillRowWithString(row, ExcelConfig.Sheet426PersonalBlankStart
+                    , ExcelConfig.Sheet426PersonalBlankEnd, errorInfos);
         }else{
-            insertLog3(sheet426PDM, sheet426, excelType, index, row);
-            insertLog4(sheet426PDM, sheet426, excelType, index, row);
-            ExcelUtils.fillRowWithBlank(row, ExcelConfig.Sheet426CoreBlankStart
-                    , ExcelConfig.Sheet426CoreBlankEnd);
+            ExcelUtils.fillRowWithString(row, ExcelConfig.Sheet426CoreBlankStart
+                    , ExcelConfig.Sheet426CoreBlankEnd, errorInfos);
         }
     }
 

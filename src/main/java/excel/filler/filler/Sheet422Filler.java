@@ -28,7 +28,7 @@ public class Sheet422Filler {
             throw new Exception("Invalid null arguments");
         }
 
-        File destFile = null;
+        File destFile;
         if(destination.equals(FileDestination.Core)){
             destFile = new File(POIConfig.RootDirectory
                     + POIConfig.MonthlyCoreFile);
@@ -77,36 +77,24 @@ public class Sheet422Filler {
         Row row = ExcelUtils.getRow(sheet422, index);
 
         //Pour numeric data into an ArrayList
-        ArrayList<Float> data = new ArrayList<>();
-        data.add(0f);
-        data.add(sheet422PDM.getTsTotalSpace2());
-        data.add(sheet422PDM.getTsUsedSpace2());
-        data.add(sheet422PDM.getTsUsage2());
-        data.add(0f);
-        data.add(sheet422PDM.getTsTotalSpace3());
-        data.add(sheet422PDM.getTsUsedSpace3());
-        data.add(sheet422PDM.getTsUsage3());
+        ArrayList<String> data = new ArrayList<>();
+        data.add(booleanIntToString(sheet422PDM.getTsUsage2().intValue()));
 
         if(destination.equals(FileDestination.Core)){
             Sheet422CorePDM sheet422CorePDM = (Sheet422CorePDM)sheet422PDM;
-            data.add(0f);
-            data.add(sheet422CorePDM.getTsTotalSpace4());
-            data.add(sheet422CorePDM.getTsUsedSpace4());
-            data.add(sheet422CorePDM.getTsUsage4());
-            data.add(0f);
-            data.add(sheet422CorePDM.getTsTotalSpace5());
-            data.add(sheet422CorePDM.getTsUsedSpace5());
-            data.add(sheet422CorePDM.getTsUsage5());
+            data.add(booleanIntToString(sheet422CorePDM.getTsUsage3().intValue()));
+            data.add(booleanIntToString(sheet422CorePDM.getTsUsage4().intValue()));
+            data.add(booleanIntToString(sheet422CorePDM.getTsUsage3().intValue()));
         }
 
         if(destination.equals(FileDestination.Personal)){
-            ExcelUtils.fillRowWithFloat(row, ExcelConfig.Sheet422PersonalStart
+            ExcelUtils.fillRowWithString(row, ExcelConfig.Sheet422PersonalStart
                     , ExcelConfig.Sheet422PersonalEnd, data);
             ExcelUtils.fillRowWithBlank(row, ExcelConfig.Sheet422PersonalBlankStart
                     , ExcelConfig.Sheet422PersonalBlankEnd);
 
         }else{
-            ExcelUtils.fillRowWithFloat(row, ExcelConfig.Sheet422CoreStart
+            ExcelUtils.fillRowWithString(row, ExcelConfig.Sheet422CoreStart
                     , ExcelConfig.Sheet422CoreEnd, data);
             ExcelUtils.fillRowWithBlank(row, ExcelConfig.Sheet422CoreBlankStart
                     , ExcelConfig.Sheet422CoreBlankEnd);
@@ -127,6 +115,14 @@ public class Sheet422Filler {
         sheet422PDM.setOrder1((long)(index - ExcelConfig.Sheet422RecordStartRow + 1));
         //Write inspection time, order and province
         setBasicProperties(row, sheet422PDM, destination);
+    }
+
+    private static String booleanIntToString(int booleanInt){
+        if(booleanInt == 1){
+            return ExcelConfig.descriptionHasOverloadedTable;
+        }else{
+            return ExcelConfig.descriptionNoOverloadedTable;
+        }
     }
 
     //Write inspection time, order, batch ID and province
@@ -159,22 +155,5 @@ public class Sheet422Filler {
         Cell cellProvince = ExcelUtils.getCell(row, ExcelConfig.Sheet422ProvinceCellIndex);
         cellProvince.setCellStyle(cellStyle);
         cellProvince.setCellValue(sheet422PDM.getProvince());
-
-        Cell tsName2Cell = ExcelUtils.getCell(row, ExcelConfig.Sheet422PersonalStart);
-        tsName2Cell.setCellStyle(cellStyle);
-        tsName2Cell.setCellValue(sheet422PDM.getTsName2());
-        if(destination.equals(FileDestination.Core)){
-            Sheet422CorePDM sheet422CorePDM = (Sheet422CorePDM)sheet422PDM;
-
-            Cell tsName3Cell = ExcelUtils.getCell(row, ExcelConfig.Sheet422PersonalStart
-                    + ExcelConfig.Sheet422DataDistance);
-            tsName3Cell.setCellStyle(cellStyle);
-            tsName3Cell.setCellValue(sheet422CorePDM.getTsName3());
-
-            Cell tsName4Cell = ExcelUtils.getCell(row, ExcelConfig.Sheet422PersonalStart
-                    + 2*ExcelConfig.Sheet422DataDistance);
-            tsName4Cell.setCellStyle(cellStyle);
-            tsName4Cell.setCellValue(sheet422CorePDM.getTsName4());
-        }
     }
 }

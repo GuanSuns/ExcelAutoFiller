@@ -36,17 +36,18 @@ public class ExcelConfig {
     public static String nullValue = "";
 
     //Sheet 4.1.1 Setting
-    public static int Sheet411PersonalStart = 3;
-    public static int Sheet411PersonalEnd = 15;
-    public static int Sheet411CoreStart = 3;
-    public static int Sheet411CoreEnd = 17;
+    public static int Sheet411PersonalStart = 4;
+    public static int Sheet411PersonalEnd = 16;
+    public static int Sheet411CoreStart = 4;
+    public static int Sheet411CoreEnd = 18;
     public static String Sheet411DefaultProvince = "广东";
     public static int Sheet411RecordStartRow = 3;
     public static int Sheet411TimeCellIndex = 0;
     public static int Sheet411Order1CellIndex = 1;
-    public static int Sheet411ProvinceCellIndex = 2;
-    public static int Sheet411PersonalRemarkIndex = 15;
-    public static int Sheet411CoreRemarkIndex = 17;
+    public static int Sheet411BatchCellIndex = 2;
+    public static int Sheet411ProvinceCellIndex = 3;
+    public static int Sheet411PersonalRemarkIndex = 16;
+    public static int Sheet411CoreRemarkIndex = 18;
     
     //Sheet 4.2.1 Setting
     public static int Sheet421PersonalStart = 3;
@@ -73,14 +74,16 @@ public class ExcelConfig {
     public static int Sheet422BatchCellIndex = 2;
     public static int Sheet422ProvinceCellIndex = 3;
     public static int Sheet422PersonalStart = 4;
-    public static int Sheet422PersonalEnd = 8;
-    public static int Sheet422PersonalBlankStart = 8;
-    public static int Sheet422PersonalBlankEnd = 21;
+    public static int Sheet422PersonalEnd = 5;
+    public static int Sheet422PersonalBlankStart = 5;
+    public static int Sheet422PersonalBlankEnd = 8;
     public static int Sheet422CoreStart = 4;
-    public static int Sheet422CoreEnd = 16;
-    public static int Sheet422CoreBlankStart = 16;
-    public static int Sheet422CoreBlankEnd = 21;
+    public static int Sheet422CoreEnd = 8;
+    public static int Sheet422CoreBlankStart = 8;
+    public static int Sheet422CoreBlankEnd = 9;
     public static int Sheet422DataDistance = 4;
+    public static String descriptionHasOverloadedTable = "是";
+    public static String descriptionNoOverloadedTable = "否";
 
     //Sheet 4.2.3 Setting
     public static String Sheet423DefaultProvince = "广东";
@@ -121,10 +124,10 @@ public class ExcelConfig {
     public static int Sheet426BatchCellIndex = 2;
     public static int Sheet426ProvinceCellIndex = 3;
     public static int Sheet426Start = 4;
-    public static int Sheet426PersonalBlankStart = 6;
-    public static int Sheet426PersonalBlankEnd = 9;
-    public static int Sheet426CoreBlankStart = 10;
-    public static int Sheet426CoreBlankEnd = 13;
+    public static int Sheet426PersonalBlankStart = 5;
+    public static int Sheet426PersonalBlankEnd = 7;
+    public static int Sheet426CoreBlankStart = 8;
+    public static int Sheet426CoreBlankEnd = 9;
     public static String Sheet426ErrorString = "有";
     public static String Sheet426NoErrorString = "无";
     public static float Sheet426LogCellHeight = 90f;
