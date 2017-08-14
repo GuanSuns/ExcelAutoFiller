@@ -50,10 +50,10 @@ public class ExcelConfig {
     public static int Sheet411CoreRemarkIndex = 18;
     
     //Sheet 4.2.1 Setting
-    public static int Sheet421PersonalStart = 3;
-    public static int Sheet421PersonalEnd = 9;
-    public static int Sheet421PersonalBlankStart = 9;
-    public static int Sheet421PersonalBlankEnd = 13;
+    public static int Sheet421PersonalStart = 4;
+    public static int Sheet421PersonalEnd = 10;
+    public static int Sheet421PersonalBlankStart = 10;
+    public static int Sheet421PersonalBlankEnd = 14;
     public static int Sheet421CoreStart = 4;
     public static int Sheet421CoreEnd = 16;
     public static int Sheet421CoreBlankStart = 16;

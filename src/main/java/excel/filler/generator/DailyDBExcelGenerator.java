@@ -29,6 +29,7 @@ public class DailyDBExcelGenerator {
         for(DailyDBInspectionModel dailyDBModel : dailyDBModels){
             DailyDBInspectionPDM dailyPDM = new DailyDBInspectionPDM();
             fillDBPdmFromModel(dailyPDM, dailyDBModel);
+
             DailyInspectionDBFiller.fill(dailyPDM, FileDestination.Personal);
         }
     }
@@ -44,6 +45,7 @@ public class DailyDBExcelGenerator {
         for(DailyDBInspectionModel dailyDBModel : dailyDBModels){
             DailyDBInspectionPDM dailyPDM = new DailyDBInspectionPDM();
             fillDBPdmFromModel(dailyPDM, dailyDBModel);
+
             DailyInspectionDBFiller.fill(dailyPDM, FileDestination.Core);
         }
     }

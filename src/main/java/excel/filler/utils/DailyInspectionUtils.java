@@ -41,7 +41,6 @@ public class DailyInspectionUtils {
                 return getIndex(nameList, clusterName, inspectTimes
                         , inspectTime, lastRowIndex);
             }else if(isLaterThan(frameDate, inspectTime)){
-
                 int newRowIndex = lastRowIndex + nameList.length * inspectTimes.length;
                 createNewFrame(sheet, inspectTime
                         , newRowIndex

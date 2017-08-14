@@ -97,4 +97,19 @@ public class DailyDBInspectionPDM {
     public void setDiskBusy(Float diskBusy) {
         this.diskBusy = diskBusy;
     }
+
+    @Override
+    public String toString() {
+        return "DailyDBInspectionPDM{" +
+                "inspectTime=" + inspectTime +
+                ", clusterName='" + clusterName + '\'' +
+                ", cpuUsage=" + cpuUsage +
+                ", memoryUsage=" + memoryUsage +
+                ", archiveUsage=" + archiveUsage +
+                ", hasLongTermLock='" + hasLongTermLock + '\'' +
+                ", hasOverloadedTable='" + hasOverloadedTable + '\'' +
+                ", hasErrorLog='" + hasErrorLog + '\'' +
+                ", diskBusy=" + diskBusy +
+                '}';
+    }
 }

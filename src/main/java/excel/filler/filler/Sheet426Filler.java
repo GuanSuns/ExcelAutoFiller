@@ -107,11 +107,19 @@ public class Sheet426Filler {
         }
 
         if(destination.equals(FileDestination.Personal)){
-            ExcelUtils.fillRowWithString(row, ExcelConfig.Sheet426PersonalBlankStart
-                    , ExcelConfig.Sheet426PersonalBlankEnd, errorInfos);
+            ExcelUtils.fillRowWithString(row, ExcelConfig.Sheet426Start
+                    , ExcelConfig.Sheet426PersonalBlankStart, errorInfos);
         }else{
-            ExcelUtils.fillRowWithString(row, ExcelConfig.Sheet426CoreBlankStart
+            ExcelUtils.fillRowWithString(row, ExcelConfig.Sheet426Start
                     , ExcelConfig.Sheet426CoreBlankEnd, errorInfos);
+        }
+
+        if(destination.equals(FileDestination.Personal)){
+            ExcelUtils.fillRowWithBlank(row, ExcelConfig.Sheet426PersonalBlankStart
+                    , ExcelConfig.Sheet426PersonalBlankEnd);
+        }else{
+            ExcelUtils.fillRowWithBlank(row, ExcelConfig.Sheet426CoreBlankStart
+                    , ExcelConfig.Sheet426CoreBlankEnd);
         }
     }
 
