@@ -60,15 +60,13 @@ public class DailyAppExcelGenerator {
             dailyPDM.setSvrState(DailyAppExcelConfig.getDescriptionNotRunning());
         }
 
-        dailyPDM.setHoggingThreadCnt(dailyAppModel.getHoggingCount().intValue());
-        dailyPDM.setJdbcConnectionCnt(dailyAppModel.getDataSourceConnectionCount().intValue());
+        dailyPDM.setHoggingThreadCnt(dailyAppModel.getHoggingCount());
+        dailyPDM.setJdbcConnectionCnt(dailyAppModel.getDataSourceConnectionCount());
 
         if(dailyAppModel.getDataSourceState() == 1){
             dailyPDM.setJdbcState(DailyAppExcelConfig.getDescriptionIsRunning());
         }else{
             dailyPDM.setJdbcState(DailyAppExcelConfig.getDescriptionNotRunning());
         }
-
-        dailyPDM.setJdbcConnectionCnt(dailyAppModel.getDataSourceConnectionCount().intValue());
     }
 }

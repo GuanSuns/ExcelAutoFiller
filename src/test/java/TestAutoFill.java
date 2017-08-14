@@ -12,6 +12,10 @@ public class TestAutoFill {
         try{
             DBConfig.setConfigToMySQL();
 
+            Sheet426Generator.generatePersonal();
+            Sheet426Generator.generateCore();
+            /*
+
             Sheet411Generator.generateCore();
             Sheet411Generator.generatePersonal();
             Sheet421Generator.generateCore();
@@ -28,6 +32,7 @@ public class TestAutoFill {
             Sheet428Generator.generatePersonal();
             Sheet426Generator.generatePersonal();
             Sheet426Generator.generateCore();
+            */
 
         }catch (Exception e){
             e.printStackTrace();

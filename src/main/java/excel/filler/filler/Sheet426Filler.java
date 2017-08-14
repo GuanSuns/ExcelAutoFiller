@@ -111,7 +111,7 @@ public class Sheet426Filler {
                     , ExcelConfig.Sheet426PersonalBlankStart, errorInfos);
         }else{
             ExcelUtils.fillRowWithString(row, ExcelConfig.Sheet426Start
-                    , ExcelConfig.Sheet426CoreBlankEnd, errorInfos);
+                    , ExcelConfig.Sheet426CoreBlankStart, errorInfos);
         }
 
         if(destination.equals(FileDestination.Personal)){

@@ -122,16 +122,18 @@ public class DailyInspectionAppFiller {
         cellSvrState.setCellStyle(cellStyle);
         cellSvrState.setCellValue(dailyAppPDM.getSvrState());
 
-        Cell cellHoggingThreadCnt = ExcelUtils.getCell(newRow, DailyAppExcelConfig.getHoggingThreadCntIndex());
-        cellHoggingThreadCnt.setCellStyle(cellStyle);
-        cellHoggingThreadCnt.setCellValue(dailyAppPDM.getHoggingThreadCnt());
+        ArrayList<Float> hoggingThreadCnt = new ArrayList<>(1);
+        hoggingThreadCnt.add(dailyAppPDM.getHoggingThreadCnt());
+        ExcelUtils.fillRowWithFloat(newRow, DailyAppExcelConfig.getHoggingThreadCntIndex()
+                , DailyAppExcelConfig.getHoggingThreadCntIndex() + 1, hoggingThreadCnt);
 
         Cell cellJdbcRunningState = ExcelUtils.getCell(newRow, DailyAppExcelConfig.getJdbcStateIndex());
         cellJdbcRunningState.setCellStyle(cellStyle);
         cellJdbcRunningState.setCellValue(dailyAppPDM.getJdbcState());
 
-        Cell cellJdbcConnectionCnt = ExcelUtils.getCell(newRow, DailyAppExcelConfig.getJdbcConnectionCntIndex());
-        cellJdbcConnectionCnt.setCellStyle(cellStyle);
-        cellJdbcConnectionCnt.setCellValue(dailyAppPDM.getJdbcConnectionCnt());
+        ArrayList<Float> jdbcConnectionCnt = new ArrayList<>(1);
+        jdbcConnectionCnt.add(dailyAppPDM.getJdbcConnectionCnt());
+        ExcelUtils.fillRowWithFloat(newRow, DailyAppExcelConfig.getJdbcConnectionCntIndex()
+                , DailyAppExcelConfig.getJdbcConnectionCntIndex() + 1, jdbcConnectionCnt);
     }
 }

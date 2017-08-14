@@ -11,9 +11,9 @@ public class DailyAppInspectionPDM {
     private Float memoryUsage;
     private Float softwareDirectoryUsage;
     private String svrState;
-    private Integer hoggingThreadCnt;
+    private Float hoggingThreadCnt;
     private String jdbcState;
-    private Integer jdbcConnectionCnt;
+    private Float jdbcConnectionCnt;
 
     public DailyAppInspectionPDM() {
         this.inspectTime = new Timestamp(new Date().getTime());
@@ -22,9 +22,9 @@ public class DailyAppInspectionPDM {
         this.memoryUsage = 0f;
         this.softwareDirectoryUsage = 0f;
         this.svrState = "";
-        this.hoggingThreadCnt = 0;
+        this.hoggingThreadCnt = 0f;
         this.jdbcState = "";
-        this.jdbcConnectionCnt = 0;
+        this.jdbcConnectionCnt = 0f;
     }
 
     public Timestamp getInspectTime() {
@@ -75,11 +75,11 @@ public class DailyAppInspectionPDM {
         this.svrState = svrState;
     }
 
-    public Integer getHoggingThreadCnt() {
+    public Float getHoggingThreadCnt() {
         return hoggingThreadCnt;
     }
 
-    public void setHoggingThreadCnt(Integer hoggingThreadCnt) {
+    public void setHoggingThreadCnt(Float hoggingThreadCnt) {
         this.hoggingThreadCnt = hoggingThreadCnt;
     }
 
@@ -91,11 +91,11 @@ public class DailyAppInspectionPDM {
         this.jdbcState = jdbcState;
     }
 
-    public Integer getJdbcConnectionCnt() {
+    public Float getJdbcConnectionCnt() {
         return jdbcConnectionCnt;
     }
 
-    public void setJdbcConnectionCnt(Integer jdbcConnectionCnt) {
+    public void setJdbcConnectionCnt(Float jdbcConnectionCnt) {
         this.jdbcConnectionCnt = jdbcConnectionCnt;
     }
 }
