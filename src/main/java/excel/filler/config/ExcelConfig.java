@@ -63,7 +63,8 @@ public class ExcelConfig {
     public static int Sheet421TimeCellIndex = 0;
     public static int Sheet421Order1CellIndex = 1;
     public static int Sheet421CoreBatchCellIndex = 2;
-    public static int Sheet421PersonalProvinceCellIndex = 2;
+    public static int Sheet421PersonalBatchCellIndex = 2;
+    public static int Sheet421PersonalProvinceCellIndex = 3;
     public static int Sheet421CoreProvinceCellIndex = 3;
 
     //Sheet 4.2.2 Setting

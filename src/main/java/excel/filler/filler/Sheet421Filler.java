@@ -161,7 +161,7 @@ public class Sheet421Filler {
             ExcelUtils.fillRowWithBlank(row, ExcelConfig.Sheet421CoreBlankStart
                     , ExcelConfig.Sheet421CoreBlankEnd);
         }else{
-            Cell cellBatch = ExcelUtils.getCell(row, ExcelConfig.Sheet421CoreBatchCellIndex);
+            Cell cellBatch = ExcelUtils.getCell(row, ExcelConfig.Sheet421PersonalBatchCellIndex);
             cellBatch.setCellStyle(cellStyle);
             cellBatch.setCellValue("");
 
